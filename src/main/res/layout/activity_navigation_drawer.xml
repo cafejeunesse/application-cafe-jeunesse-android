@@ -36,13 +36,14 @@
          The drawer is given a fixed width in dp and extends the full height of
          the container. A solid background is used for contrast
          with the content view. -->
-    <android.support.v7.widget.RecyclerView
+    <ListView
         android:id="@+id/left_drawer"
-        android:scrollbars="vertical"
+        android:paddingTop="10dp"
         android:layout_width="240dp"
         android:layout_height="match_parent"
-        android:layout_gravity="left|start"
+        android:layout_gravity="start"
         android:choiceMode="singleChoice"
-        android:divider="@null"
-        />
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="@color/menu_unselected"/>
 </android.support.v4.widget.DrawerLayout>
