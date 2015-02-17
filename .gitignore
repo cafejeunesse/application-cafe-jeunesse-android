@@ -1,3 +1,18 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+Thumbs.db
+Thumbs.db.meta
+
+# Dev tools
+npm-debug.log
+node_modules
+
 # Built application files
 *.apk
 *.ap_
