@@ -16,7 +16,7 @@
 
 <resources>
 
-    <style name="Widget.SampleMessage">
+    <style name="Widget.SampleMessage1">
         <item name="android:textAppearance">?android:textAppearanceLarge</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:shadowDy">-6.5</item>
