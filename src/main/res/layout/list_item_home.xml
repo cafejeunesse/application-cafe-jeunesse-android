@@ -43,31 +43,42 @@
         android:ellipsize="end"
         android:layout_marginRight="30dp" />
 
-    <TextView
-        android:id="@+id/home_date_day"
-        style="?android:textAppearanceLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:gravity="center"
-        android:layout_marginLeft="30dp"
-        android:textColor="@color/news_date"
-        android:text="20"
-        android:layout_alignParentRight="false"
-        android:textSize="40sp"/>
+    <FrameLayout
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="18dp">
 
-    <TextView
-        android:id="@+id/home_date_month"
-        style="?android:textAppearanceLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:gravity="center"
-        android:layout_marginLeft="32dp"
-        android:textColor="@color/news_date"
-        android:text="févr."
-        android:layout_alignParentRight="false"
-        android:layout_marginTop="40dp" />
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/rectangle"/>
+
+        <TextView
+            android:id="@+id/home_date_day"
+            style="?android:textAppearanceLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:textColor="@color/news_date"
+            android:text="20"
+            android:layout_alignParentRight="false"
+            android:textSize="35sp"/>
+
+        <TextView
+            android:id="@+id/home_date_month"
+            style="?android:textAppearanceLarge"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:textColor="@color/news_date"
+            android:text="févr."
+            android:layout_alignParentRight="false"
+            android:layout_marginTop="35dp" />
+
+    </FrameLayout>
 
 </RelativeLayout>
 

@@ -4,11 +4,14 @@
     <color name="menu_text">#000</color>
     <color name="menu_unselected">#FFF</color>
     <color name="menu_pressed">#b0b0b0</color>
-    <color name="menu_selected">#ffab09</color>
+    <color name="menu_selected">@color/accent_color</color>
 
-    <color name="news_title">#ffab09</color>
-    <color name="news_title_dark">#c2840b</color>
+    <color name="news_title">#3f6276</color>
+    <color name="news_title_dark">#3f6276</color>
     <color name="news_subtitle">#000</color>
-    <color name="news_date">#000</color>
+    <color name="news_date">#fff</color>
+    <color name="news_date_rectangle">#82d1fe</color>
+
+    <color name="accent_color">#ffeb64</color>
 
 </resources>
