@@ -1,10 +1,10 @@
 package com.cafejeunesse.android.fragment;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -27,6 +27,9 @@ import java.util.List;
  * Created by David Levayer on 17/02/15.
  */
 public class HomeFragment extends BasicFragment implements Refreshable {
+
+    public final static String HOME_TITLE = "hometitle";
+    public final static String HOME_DESCR = "homedescription";
 
     private ViewGroup mContainerView;
     private View mView;
@@ -95,7 +98,7 @@ public class HomeFragment extends BasicFragment implements Refreshable {
         }
     }
 
-    private void addNews(News n){
+    private void addNews(final News n){
 
         ViewGroup newView = (ViewGroup) LayoutInflater.from(mView.getContext()).inflate(
                 R.layout.list_item_home, mContainerView, false);
@@ -105,16 +108,26 @@ public class HomeFragment extends BasicFragment implements Refreshable {
         ((TextView) newView.findViewById(R.id.home_date_day)).setText(n.getPublishingDay());
         ((TextView) newView.findViewById(R.id.home_date_month)).setText(n.getPublishingMonth());
 
-        newView.setOnTouchListener(new View.OnTouchListener() {
+        newView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // TODO DialogFragment
-                Toast.makeText(v.getContext(),((TextView) v.findViewById(R.id.home_title)).getText(),Toast.LENGTH_SHORT).show();
-                return true;
+            public void onClick(View v) {
+
+                Bundle b = new Bundle();
+                b.putString(HOME_TITLE,n.getTitle());
+                b.putString(HOME_DESCR,n.getArticle());
+
+                FragmentManager fm = me().getFragmentManager();
+                HomeDialogFragment mDialogFragment = new HomeDialogFragment();
+                mDialogFragment.setArguments(b);
+                mDialogFragment.show(fm,"home_dialog_fragment");
             }
         });
 
         mContainerView.addView(newView, 0);
+    }
+
+    private BasicFragment me() {
+        return this;
     }
 
     public void refresh(){

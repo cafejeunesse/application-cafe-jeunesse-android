@@ -105,7 +105,7 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
             Toast.makeText(context, "Erreur de téléchargement : " + result, Toast.LENGTH_LONG).show();
         else {
             // TODO export dans un String.xml
-            Toast.makeText(context, "Fichier télécharger", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Fichier téléchargé", Toast.LENGTH_SHORT).show();
             mRefresh.refresh();
         }
     }

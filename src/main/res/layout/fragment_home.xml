@@ -42,6 +42,8 @@
                     android:layout_gravity="center"
                     android:duplicateParentState="true"/>
 
+                <!-- TODO Elevation effect pour Floating button -->
+
             </com.cafejeunesse.android.floatingactionbutton.FloatingActionButton>
 
             <LinearLayout android:id="@+id/news_container"
