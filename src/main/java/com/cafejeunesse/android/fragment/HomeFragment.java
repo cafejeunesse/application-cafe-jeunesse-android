@@ -35,12 +35,15 @@ public class HomeFragment extends BasicFragment implements Refreshable {
     private View mView;
     private Context mContext;
 
-    public final static String CALENDAR_URL =
+    private final static String CALENDAR_URL =
             "https://www.google.com/calendar/feeds/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic";
 
-    public final static String CALENDAR_FILEPATH = Environment.getExternalStorageDirectory().getPath()+"/calendar.xml";
+    private final static String SCHEDULE_URL =
+            "https://www.google.com/calendar/feeds/cafejeunessedechicoutimi%40gmail.com/public/basic";
 
-    public final static String SCHEDULE_FILEPATH = Environment.getExternalStorageDirectory().getPath()+"/horaires.xml";
+    private final static String CALENDAR_FILEPATH = Environment.getExternalStorageDirectory().getPath()+"/calendar.xml";
+
+    private final static String SCHEDULE_FILEPATH = Environment.getExternalStorageDirectory().getPath()+"/horaires.xml";
 
     public final static long TIME_BETWEEN_DOWNLOADS = 86400000;
 
@@ -53,22 +56,28 @@ public class HomeFragment extends BasicFragment implements Refreshable {
         mContainerView = (ViewGroup) mView.findViewById(R.id.news_container);
         mContext = getActivity();
 
+        testAndDownload(HomeFragment.CALENDAR_FILEPATH, HomeFragment.CALENDAR_URL);
+        testAndDownload(HomeFragment.SCHEDULE_FILEPATH, HomeFragment.SCHEDULE_URL);
+
+        return mView;
+    }
+
+    private void testAndDownload(String filepath, String url){
+
         // Téléchargement (si besoin) des calendriers
-        File f = new File(HomeFragment.CALENDAR_FILEPATH);
+        File f = new File(filepath);
 
         boolean download = false;
         // Si le fichier n'est pas présent
         if(!f.exists() || !f.isFile()) download = true;
-        // Si le fichier est trop vieux
+            // Si le fichier est trop vieux
         else if((new Date().getTime() - f.lastModified())>HomeFragment.TIME_BETWEEN_DOWNLOADS) download = true;
 
         if(download){
-            startDownload(HomeFragment.CALENDAR_URL,HomeFragment.CALENDAR_FILEPATH);
+            startDownload(url,filepath);
         } else {
-            reloadNews();
+            refresh();
         }
-
-        return mView;
     }
 
     private void startDownload(String url, String fileName){
