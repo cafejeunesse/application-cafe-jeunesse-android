@@ -5,10 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- A vertical LinearLayout in a ScrollView. This emulates a ListView (and is lighter weight
-         than a ListView when there aren't many rows). -->
-    <ScrollView android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <!-- TODO refactor ça proprement sans le linear layout ? (via le RelativeLayout parent)-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,17 +43,25 @@
 
             </com.cafejeunesse.android.floatingactionbutton.FloatingActionButton>
 
-            <LinearLayout android:id="@+id/news_container"
+            <com.cafejeunesse.android.common.view.SlidingTabLayout
+                android:id="@+id/sliding_tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:showDividers="middle"
-                android:divider="?android:dividerHorizontal" />
+                android:layout_height="wrap_content"/>
 
+            <ScrollView
+                android:id="@+id/news_scrollview"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent">
 
+            <com.cafejeunesse.android.common.view.ViewPagerWithHeight
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"/>
+
+            </ScrollView>
 
         </LinearLayout>
 
-    </ScrollView>
 
 </RelativeLayout>
