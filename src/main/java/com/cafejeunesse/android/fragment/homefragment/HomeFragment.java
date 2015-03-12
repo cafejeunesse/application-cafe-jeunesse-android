@@ -1,7 +1,6 @@
 package com.cafejeunesse.android.fragment.homefragment;
 
 import android.app.FragmentManager;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.view.PagerAdapter;
@@ -38,8 +37,6 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
     public final static String HOME_TITLE = "hometitle";
     public final static String HOME_DESCR = "homedescription";
 
-    private View mView;
-    private Context mContext;
     private ViewPager mViewPager;
     private SlidingTabLayout mSlidingTabLayout;
 
@@ -64,10 +61,11 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mView = inflater.inflate(R.layout.homefragment_main, container, false);
+        // Chargement générique des fragments de l'application
+        initFragment();
 
         // Chargement spécifique au fragment
-        mContext = getActivity();
+        mView = inflater.inflate(R.layout.homefragment_main, container, false);
 
         return mView;
     }
@@ -165,7 +163,7 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
             View view = getActivity().getLayoutInflater().inflate(R.layout.homefragment_pager,
                     container, false);
 
-            mListView = (ListView)view.findViewById(R.id.news_listview);
+            mListView = (ListView)view.findViewById(R.id.listview_news);
             mListViewAdapter = new NewsArrayAdapter(mContext, new ArrayList<News>());
             mListView.setAdapter(mListViewAdapter);
             mListView.setOnItemClickListener(HomeFragment.this);

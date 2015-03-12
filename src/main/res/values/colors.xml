@@ -12,6 +12,8 @@
     <color name="news_date">#fff</color>
     <color name="news_date_rectangle">#82d1fe</color>
 
+    <color name="service_button">#cacbcc</color>
+
     <color name="accent_color">#fee228</color>
     <color name="light_gray">#cacbcc</color>
 

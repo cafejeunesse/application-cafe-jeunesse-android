@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cafejeunesse.android.fragment.homefragment.HomeFragment;
+import com.cafejeunesse.android.fragment.servicefragment.ServiceFragment;
 
 /**
  * Created by David Levayer on 17/02/15.
@@ -130,8 +131,15 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
 
     private void selectItem(int position) {
         // update the main content by replacing fragments
-        //Fragment fragment = PlanetFragment.newInstance(position);
-        Fragment fragment = new HomeFragment();
+        Fragment fragment;
+
+        switch(position){
+            case 2:
+                fragment = new ServiceFragment();
+                break;
+            default:
+                fragment = new HomeFragment();
+        }
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();

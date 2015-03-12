@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+
     <string name="app_name">Cafe Jeunesse</string>
+
     <string-array name="menu_titles_array">
         <item>Accueil</item>
-        <item>Informations</item>
+        <item>Le Café Jeunesse</item>
         <item>Partenaires</item>
         <item>Carte</item>
         <item>Contacts</item>
         <item>Paramètres</item>
     </string-array>
+
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="action_websearch">Web search</string>
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
+
+    <!-- Fragment "Service" -->
+    <string name="all_service">Toutes les catégories</string>
+    <string name="custom_service">Catégories personnalisée</string>
+
 </resources>
