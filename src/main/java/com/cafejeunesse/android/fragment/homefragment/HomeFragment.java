@@ -40,8 +40,6 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
 
     private View mView;
     private Context mContext;
-    private ListView mListView;
-    private NewsArrayAdapter mListViewAdapter;
     private ViewPager mViewPager;
     private SlidingTabLayout mSlidingTabLayout;
 
@@ -83,7 +81,6 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
         testAndDownload(HomeFragment.SCHEDULE_FILEPATH, HomeFragment.SCHEDULE_URL);
 
         refresh();
-
     }
 
     private void testAndDownload(String filepath, String url){
@@ -105,38 +102,6 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
         // execute this when the downloader must be fired
         final DownloadTask downloadTask = new DownloadTask(mContext, this);
         downloadTask.execute(url,fileName);
-    }
-
-    private void reloadNews(int tabIndex){
-
-        List<News> mNews = null;
-        mListViewAdapter.clear();
-
-        try {
-
-            switch(tabIndex){
-                case CALENDAR_TAB_INDEX:
-                    mNews = new NewsParser().parseFileForNews(HomeFragment.CALENDAR_FILEPATH);
-                    break;
-                case SCHEDULE_TAB_INDEX:
-                    mNews = new NewsParser().parseFileForNews(HomeFragment.SCHEDULE_FILEPATH);
-                    break;
-                default:
-            }
-
-            for(News n: mNews)
-                mListViewAdapter.add(n);
-
-        } catch (FileNotFoundException e){
-            // TODO export dans un String.xml
-            Toast.makeText(mContext,"Fichier XML introuvable",Toast.LENGTH_LONG).show();
-        } catch (XmlPullParserException e){
-            // TODO export dans un String.xml
-            Toast.makeText(mContext,"Erreur lors de la lecture du fichier XML",Toast.LENGTH_LONG).show();
-        } catch (IOException e){
-            // TODO export dans un String.xml
-            Toast.makeText(mContext,"Erreur lors de l'ouverture du fichier XML",Toast.LENGTH_LONG).show();
-        }
     }
 
     private BasicFragment me() {
@@ -168,6 +133,9 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
     }
 
     class SamplePagerAdapter extends PagerAdapter {
+
+        private ListView mListView;
+        private NewsArrayAdapter mListViewAdapter;
 
         @Override
         public int getCount() {
@@ -216,7 +184,37 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
             container.removeView((View) object);
         }
 
+        private void reloadNews(int tabIndex){
 
+            List<News> mNews = null;
+            mListViewAdapter.clear();
+
+            try {
+
+                switch(tabIndex){
+                    case CALENDAR_TAB_INDEX:
+                        mNews = new NewsParser().parseFileForNews(HomeFragment.CALENDAR_FILEPATH);
+                        break;
+                    case SCHEDULE_TAB_INDEX:
+                        mNews = new NewsParser().parseFileForNews(HomeFragment.SCHEDULE_FILEPATH);
+                        break;
+                    default:
+                }
+
+                for(News n: mNews)
+                    mListViewAdapter.add(n);
+
+            } catch (FileNotFoundException e){
+                // TODO export dans un String.xml
+                Toast.makeText(mContext,"Fichier XML introuvable",Toast.LENGTH_LONG).show();
+            } catch (XmlPullParserException e){
+                // TODO export dans un String.xml
+                Toast.makeText(mContext,"Erreur lors de la lecture du fichier XML",Toast.LENGTH_LONG).show();
+            } catch (IOException e){
+                // TODO export dans un String.xml
+                Toast.makeText(mContext,"Erreur lors de l'ouverture du fichier XML",Toast.LENGTH_LONG).show();
+            }
+        }
 
     }
 
