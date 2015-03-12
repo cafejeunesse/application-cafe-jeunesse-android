@@ -1,5 +1,6 @@
 package com.cafejeunesse.android.fragment.homefragment;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
@@ -8,10 +9,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cafejeunesse.android.common.view.SlidingTabLayout;
-import com.cafejeunesse.android.common.view.ViewPagerWithHeight;
 import com.cafejeunesse.android.filemanager.DownloadTask;
 import com.cafejeunesse.android.filemanager.NewsParser;
 import com.cafejeunesse.android.fragment.BasicFragment;
@@ -24,20 +26,23 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by David Levayer on 17/02/15.
  */
-public class HomeFragment extends BasicFragment implements Refreshable {
+public class HomeFragment extends BasicFragment implements Refreshable, AdapterView.OnItemClickListener {
 
     public final static String HOME_TITLE = "hometitle";
     public final static String HOME_DESCR = "homedescription";
 
     private View mView;
     private Context mContext;
-    private ViewPagerWithHeight mViewPager;
+    private ListView mListView;
+    private NewsArrayAdapter mListViewAdapter;
+    private ViewPager mViewPager;
     private SlidingTabLayout mSlidingTabLayout;
 
     private final static String CALENDAR_URL =
@@ -72,32 +77,13 @@ public class HomeFragment extends BasicFragment implements Refreshable {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        mViewPager = (ViewPagerWithHeight) mView.findViewById(R.id.viewpager);
-        mViewPager.setAdapter(new SamplePagerAdapter());
-
-        final View pagerContainer = (View) mView.findViewById(R.id.viewpagercontainer);
-        pagerContainer.post(new Runnable() {
-            @Override
-            public void run() {
-                mViewPager.setContainerHeight(pagerContainer.getMeasuredHeight());
-            }
-        });
-
-        mSlidingTabLayout = (SlidingTabLayout) mView.findViewById(R.id.sliding_tabs);
-        mSlidingTabLayout.setViewPager(mViewPager);
-
-        mSlidingTabLayout.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            public void onPageScrollStateChanged(int state) {}
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
-
-            public void onPageSelected(int position) {
-                mViewPager.requestLayout();
-                mViewPager.invalidate();
-            }
-        });
+        mViewPager = (ViewPager) mView.findViewById(R.id.viewpager);
 
         testAndDownload(HomeFragment.CALENDAR_FILEPATH, HomeFragment.CALENDAR_URL);
         testAndDownload(HomeFragment.SCHEDULE_FILEPATH, HomeFragment.SCHEDULE_URL);
+
+        refresh();
+
     }
 
     private void testAndDownload(String filepath, String url){
@@ -111,11 +97,8 @@ public class HomeFragment extends BasicFragment implements Refreshable {
             // Si le fichier est trop vieux
         else if((new Date().getTime() - f.lastModified())>HomeFragment.TIME_BETWEEN_DOWNLOADS) download = true;
 
-        if(download){
+        if(download)
             startDownload(url,filepath);
-        } else {
-            refresh();
-        }
     }
 
     private void startDownload(String url, String fileName){
@@ -127,6 +110,7 @@ public class HomeFragment extends BasicFragment implements Refreshable {
     private void reloadNews(int tabIndex){
 
         List<News> mNews = null;
+        mListViewAdapter.clear();
 
         try {
 
@@ -140,7 +124,8 @@ public class HomeFragment extends BasicFragment implements Refreshable {
                 default:
             }
 
-            // TODO
+            for(News n: mNews)
+                mListViewAdapter.add(n);
 
         } catch (FileNotFoundException e){
             // TODO export dans un String.xml
@@ -154,18 +139,32 @@ public class HomeFragment extends BasicFragment implements Refreshable {
         }
     }
 
-    private void addNews(final News n){
-        // TODO
-    }
-
     private BasicFragment me() {
         return this;
     }
 
     public void refresh(){
-        int tabNumber = mViewPager.getChildCount();
-        for(int i=0; i<tabNumber; i++)
-            reloadNews(i);
+
+        // en définissant un nouvel Adapter, on force le ViewPager à recharger les onglets
+        mViewPager.setAdapter(new SamplePagerAdapter());
+        mSlidingTabLayout = (SlidingTabLayout) mView.findViewById(R.id.sliding_tabs);
+        mSlidingTabLayout.setViewPager(mViewPager);
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        News n = (News) parent.getAdapter().getItem(position);
+
+        Bundle b = new Bundle();
+        b.putString(HOME_TITLE,n.getTitle());
+        b.putString(HOME_DESCR,n.getArticle());
+
+        FragmentManager fm = me().getFragmentManager();
+        HomeDialogFragment mDialogFragment = new HomeDialogFragment();
+        mDialogFragment.setArguments(b);
+        mDialogFragment.show(fm,"home_dialog_fragment");
     }
 
     class SamplePagerAdapter extends PagerAdapter {
@@ -198,7 +197,12 @@ public class HomeFragment extends BasicFragment implements Refreshable {
             View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_home_pager,
                     container, false);
 
-            // TODO
+            mListView = (ListView)view.findViewById(R.id.news_listview);
+            mListViewAdapter = new NewsArrayAdapter(mContext, new ArrayList<News>());
+            mListView.setAdapter(mListViewAdapter);
+            mListView.setOnItemClickListener(HomeFragment.this);
+
+            reloadNews(position);
 
             // Add the newly created View to the ViewPager
             container.addView(view);
