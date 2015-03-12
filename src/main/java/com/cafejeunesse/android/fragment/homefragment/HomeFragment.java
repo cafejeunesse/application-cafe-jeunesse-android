@@ -64,7 +64,7 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mView = inflater.inflate(R.layout.fragment_home, container, false);
+        mView = inflater.inflate(R.layout.homefragment_main, container, false);
 
         // Chargement spécifique au fragment
         mContext = getActivity();
@@ -162,7 +162,7 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
         public Object instantiateItem(ViewGroup container, int position) {
 
             // Inflate a new layout from our resources
-            View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_home_pager,
+            View view = getActivity().getLayoutInflater().inflate(R.layout.homefragment_pager,
                     container, false);
 
             mListView = (ListView)view.findViewById(R.id.news_listview);

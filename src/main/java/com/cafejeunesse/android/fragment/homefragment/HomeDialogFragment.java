@@ -27,7 +27,7 @@ public class HomeDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.list_item_home_details, container, false);
+        View view = inflater.inflate(R.layout.homefragment_news_details, container, false);
 
         this.title = (TextView) view.findViewById(R.id.home_details_title);
         this.content = (TextView) view.findViewById(R.id.home_details_description);
