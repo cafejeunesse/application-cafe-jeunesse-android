@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:gravity="center"
         android:layout_marginLeft="100dp"
         android:textColor="@color/news_title"
         android:layout_alignParentRight="false"
@@ -24,7 +23,6 @@
         android:singleLine="true"
         android:ellipsize="end"
         android:layout_marginRight="30dp"
-        android:background="@android:color/holo_orange_light"
         android:text="Titre principal"/>
 
     <TextView
@@ -33,7 +31,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:gravity="center"
         android:layout_marginLeft="100dp"
         android:textColor="@color/news_subtitle"
         android:layout_alignParentRight="false"
@@ -42,8 +39,7 @@
         android:singleLine="true"
         android:ellipsize="end"
         android:layout_marginRight="30dp"
-        android:text="Description sommaire"
-        android:background="@android:color/holo_orange_light"/>
+        android:text="Description sommaire"/>
 
 
     <FrameLayout
