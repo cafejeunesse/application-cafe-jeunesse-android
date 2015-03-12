@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -76,10 +77,26 @@ public class HomeFragment extends BasicFragment implements Refreshable {
         mViewPager = (ViewPagerWithHeight) mView.findViewById(R.id.viewpager);
         mViewPager.setAdapter(new SamplePagerAdapter());
 
-
+        final View pagerContainer = (View) mView.findViewById(R.id.viewpagercontainer);
+        pagerContainer.post(new Runnable() {
+            @Override
+            public void run() {
+                mViewPager.setContainerHeight(pagerContainer.getMeasuredHeight());
+            }
+        });
 
         mSlidingTabLayout = (SlidingTabLayout) mView.findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setViewPager(mViewPager);
+
+        mSlidingTabLayout.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            public void onPageScrollStateChanged(int state) {}
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+            public void onPageSelected(int position) {
+                mViewPager.requestLayout();
+                mViewPager.invalidate();
+            }
+        });
 
         testAndDownload(HomeFragment.CALENDAR_FILEPATH, HomeFragment.CALENDAR_URL);
         testAndDownload(HomeFragment.SCHEDULE_FILEPATH, HomeFragment.SCHEDULE_URL);
@@ -244,6 +261,7 @@ public class HomeFragment extends BasicFragment implements Refreshable {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
+
             // Inflate a new layout from our resources
             View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_home_pager,
                     container, false);

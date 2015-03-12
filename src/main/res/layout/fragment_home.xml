@@ -5,53 +5,53 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-        <!-- TODO refactor ça proprement sans le linear layout ? (via le RelativeLayout parent)-->
+    <!-- TODO refactor ça proprement sans le linear layout ? (via le RelativeLayout parent)-->
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/home_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/blue_coffee"
+            android:contentDescription="blue coffee" />
+
+        <com.cafejeunesse.android.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_1"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="-28dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/fab_background"
+            android:stateListAnimator="@animator/fab_anim"
+            android:layout_gravity="end">
 
             <ImageView
-                android:id="@+id/home_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/blue_coffee"
-                android:contentDescription="blue coffee" />
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/fab_icons"
+                android:layout_gravity="center"
+                android:duplicateParentState="true"/>
 
-            <com.cafejeunesse.android.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_1"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_marginTop="-28dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:background="@drawable/fab_background"
-                android:stateListAnimator="@animator/fab_anim"
-                android:layout_gravity="end">
+            <!-- TODO Elevation effect pour Floating button -->
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/fab_icons"
-                    android:layout_gravity="center"
-                    android:duplicateParentState="true"/>
+        </com.cafejeunesse.android.floatingactionbutton.FloatingActionButton>
 
-                <!-- TODO Elevation effect pour Floating button -->
+        <com.cafejeunesse.android.common.view.SlidingTabLayout
+            android:id="@+id/sliding_tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-            </com.cafejeunesse.android.floatingactionbutton.FloatingActionButton>
-
-            <com.cafejeunesse.android.common.view.SlidingTabLayout
-                android:id="@+id/sliding_tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <ScrollView
-                android:id="@+id/news_scrollview"
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/viewpagercontainer">
 
             <com.cafejeunesse.android.common.view.ViewPagerWithHeight
                 android:id="@+id/viewpager"
@@ -59,9 +59,9 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/white"/>
 
-            </ScrollView>
+        </FrameLayout>
 
-        </LinearLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>
