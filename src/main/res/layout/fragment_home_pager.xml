@@ -4,12 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/news_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:showDividers="middle"
-        android:divider="?android:dividerHorizontal" />
+        android:divider="?android:dividerHorizontal" /> -->
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/news_listview"/>
 
 </ScrollView>

@@ -16,7 +16,6 @@
         android:gravity="center"
         android:layout_marginLeft="100dp"
         android:textColor="@color/news_title"
-        android:text="TitreArticle"
         android:layout_alignParentRight="false"
         android:layout_alignParentTop="false"
         android:textStyle="bold"
@@ -25,7 +24,8 @@
         android:singleLine="true"
         android:ellipsize="end"
         android:layout_marginRight="30dp"
-        android:background="@android:color/holo_orange_light"/>
+        android:background="@android:color/holo_orange_light"
+        android:text="Titre principal"/>
 
     <TextView
         android:id="@+id/home_description"
@@ -36,13 +36,15 @@
         android:gravity="center"
         android:layout_marginLeft="100dp"
         android:textColor="@color/news_subtitle"
-        android:text="Sous-titre principal"
         android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
         android:layout_marginTop="40dp"
         android:singleLine="true"
         android:ellipsize="end"
-        android:layout_marginRight="30dp" />
+        android:layout_marginRight="30dp"
+        android:text="Description sommaire"
+        android:background="@android:color/holo_orange_light"/>
+
 
     <FrameLayout
         android:layout_width="65dp"

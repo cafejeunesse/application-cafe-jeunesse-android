@@ -19,7 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.cafejeunesse.android.fragment.HomeFragment;
+import com.cafejeunesse.android.fragment.homefragment.HomeFragment;
 
 /**
  * Created by David Levayer on 17/02/15.

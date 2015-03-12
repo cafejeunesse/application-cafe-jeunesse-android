@@ -1,4 +1,4 @@
-package com.cafejeunesse.android.fragment;
+package com.cafejeunesse.android.fragment.homefragment;
 
 import android.app.Dialog;
 import android.app.DialogFragment;

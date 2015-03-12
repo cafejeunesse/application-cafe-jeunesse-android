@@ -1,22 +1,21 @@
-package com.cafejeunesse.android.fragment;
+package com.cafejeunesse.android.fragment.homefragment;
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cafejeunesse.android.common.view.SlidingTabLayout;
 import com.cafejeunesse.android.common.view.ViewPagerWithHeight;
 import com.cafejeunesse.android.filemanager.DownloadTask;
 import com.cafejeunesse.android.filemanager.NewsParser;
+import com.cafejeunesse.android.fragment.BasicFragment;
+import com.cafejeunesse.android.fragment.Refreshable;
 import com.cafejeunesse.android.navigationdrawer.R;
 import com.cafejeunesse.android.structure.News;
 
@@ -36,7 +35,6 @@ public class HomeFragment extends BasicFragment implements Refreshable {
     public final static String HOME_TITLE = "hometitle";
     public final static String HOME_DESCR = "homedescription";
 
-    private ViewGroup mContainerView;
     private View mView;
     private Context mContext;
     private ViewPagerWithHeight mViewPager;
@@ -128,10 +126,6 @@ public class HomeFragment extends BasicFragment implements Refreshable {
 
     private void reloadNews(int tabIndex){
 
-        if(mContainerView == null)
-            return;
-
-        mContainerView.removeAllViews();
         List<News> mNews = null;
 
         try {
@@ -146,8 +140,7 @@ public class HomeFragment extends BasicFragment implements Refreshable {
                 default:
             }
 
-            for (News n : mNews)
-                addNews(n);
+            // TODO
 
         } catch (FileNotFoundException e){
             // TODO export dans un String.xml
@@ -162,68 +155,7 @@ public class HomeFragment extends BasicFragment implements Refreshable {
     }
 
     private void addNews(final News n){
-
-        ViewGroup newView = (ViewGroup) LayoutInflater.from(mView.getContext()).inflate(
-                R.layout.list_item_home, mContainerView, false);
-
-        ((TextView) newView.findViewById(R.id.home_title)).setText(n.getTitle());
-        ((TextView) newView.findViewById(R.id.home_description)).setText(n.getArticle());
-        ((TextView) newView.findViewById(R.id.home_date_day)).setText(n.getPublishingDay());
-        ((TextView) newView.findViewById(R.id.home_date_month)).setText(n.getPublishingMonth());
-
-        newView.setOnTouchListener(new View.OnTouchListener() {
-
-            // TODO better way ? Can't swipe when on Title
-            private float incertitude = 20;
-            private float lastX, lastY;
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                int move = event.getAction();
-
-                switch(move){
-                    case MotionEvent.ACTION_DOWN:
-                        lastX = event.getX();
-                        lastY = event.getY();
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        float diffX = Math.abs(lastX-event.getX());
-                        float diffY = Math.abs(lastY-event.getY());
-                        if(diffX < incertitude && diffY < incertitude){
-                            Bundle b = new Bundle();
-                            b.putString(HOME_TITLE,n.getTitle());
-                            b.putString(HOME_DESCR,n.getArticle());
-
-                            FragmentManager fm = me().getFragmentManager();
-                            HomeDialogFragment mDialogFragment = new HomeDialogFragment();
-                            mDialogFragment.setArguments(b);
-                            mDialogFragment.show(fm,"home_dialog_fragment");
-                            return true;
-                        }
-                    default:
-                        return false;
-                }
-            }
-        });
-
-        /*
-        newView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Bundle b = new Bundle();
-                b.putString(HOME_TITLE,n.getTitle());
-                b.putString(HOME_DESCR,n.getArticle());
-
-                FragmentManager fm = me().getFragmentManager();
-                HomeDialogFragment mDialogFragment = new HomeDialogFragment();
-                mDialogFragment.setArguments(b);
-                mDialogFragment.show(fm,"home_dialog_fragment");
-            }
-        });
-        */
-
-        mContainerView.addView(newView, 0);
+        // TODO
     }
 
     private BasicFragment me() {
@@ -266,8 +198,7 @@ public class HomeFragment extends BasicFragment implements Refreshable {
             View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_home_pager,
                     container, false);
 
-            mContainerView = (ViewGroup) view.findViewById(R.id.news_container);
-            reloadNews(position);
+            // TODO
 
             // Add the newly created View to the ViewPager
             container.addView(view);
