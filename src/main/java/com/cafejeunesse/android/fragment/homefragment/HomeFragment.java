@@ -203,8 +203,7 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
                     mListViewAdapter.add(n);
 
             } catch (FileNotFoundException e){
-                // TODO export dans un String.xml
-                Toast.makeText(mContext,"Fichier XML introuvable",Toast.LENGTH_LONG).show();
+
             } catch (XmlPullParserException e){
                 // TODO export dans un String.xml
                 Toast.makeText(mContext,"Erreur lors de la lecture du fichier XML",Toast.LENGTH_LONG).show();

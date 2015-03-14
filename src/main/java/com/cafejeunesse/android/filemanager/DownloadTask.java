@@ -3,7 +3,6 @@ package com.cafejeunesse.android.filemanager;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.PowerManager;
-import android.widget.Toast;
 
 import com.cafejeunesse.android.fragment.Refreshable;
 
@@ -100,13 +99,7 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
     @Override
     protected void onPostExecute(String result) {
         mWakeLock.release();
-        if (result != null)
-            // TODO export dans un String.xml
-            Toast.makeText(context, "Erreur de téléchargement : " + result, Toast.LENGTH_LONG).show();
-        else {
-            // TODO export dans un String.xml
-            Toast.makeText(context, "Fichier téléchargé", Toast.LENGTH_SHORT).show();
+        if (result == null)
             mRefresh.refresh();
-        }
     }
 }
