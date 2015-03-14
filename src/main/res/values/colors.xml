@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--
     <color name="menu_text">#000</color>
     <color name="menu_unselected">#FFF</color>
     <color name="menu_pressed">#b0b0b0</color>
@@ -15,6 +16,31 @@
     <color name="service_button">#cacbcc</color>
 
     <color name="accent_color">#fee228</color>
+    <color name="light_gray">#cacbcc</color>
+
+    <color name="fab_color_1">@color/accent_color</color>
+    <color name="fab_color_1_muted">#ffeb64</color>
+    <color name="fab_color_2">@color/news_date_rectangle</color>
+    <color name="fab_color_2_muted">#c0e8fe</color>
+    -->
+
+    <color name="menu_text">#000</color>
+    <color name="menu_unselected">#FFF</color>
+    <color name="menu_pressed">#b0b0b0</color>
+    <color name="menu_selected">#ffeb64</color>
+
+    <color name="news_title">#00695C</color>
+    <color name="news_title_dark">#00695C</color>
+    <color name="news_subtitle">#000</color>
+    <color name="news_date">#fff</color>
+    <color name="news_date_rectangle">#80CBC4</color>
+
+    <color name="fragment_title">#FFFFFF</color>
+    <color name="fragment_rectangle">#00695C</color>
+
+    <color name="service_button">#cacbcc</color>
+
+    <color name="accent_color">#00E676</color>
     <color name="light_gray">#cacbcc</color>
 
     <color name="fab_color_1">@color/accent_color</color>

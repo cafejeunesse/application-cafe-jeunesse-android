@@ -5,58 +5,57 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- TODO refactor ça proprement sans le linear layout ? (via le RelativeLayout parent)-->
+    <ImageView
+        android:id="@+id/home_image"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/rectangle_fragment"
+        android:contentDescription="blue coffee" />
 
-    <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Café Jeunesse"
+        android:textColor="@color/fragment_title"
+        android:textSize="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <com.cafejeunesse.android.common.view.SlidingTabLayout
+        android:id="@+id/sliding_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_image"/>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_below="@id/sliding_tabs"
+        android:background="@android:color/white"/>
+
+    <com.cafejeunesse.android.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_1"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/fab_background"
+        android:stateListAnimator="@animator/fab_anim">
 
         <ImageView
-            android:id="@+id/home_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/blue_coffee"
-            android:contentDescription="blue coffee" />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/fab_icons"
+            android:layout_gravity="center"
+            android:duplicateParentState="true"/>
 
-        <com.cafejeunesse.android.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_1"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="-28dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/fab_background"
-            android:stateListAnimator="@animator/fab_anim"
-            android:layout_gravity="end">
+        <!-- TODO Elevation effect pour Floating button -->
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/fab_icons"
-                android:layout_gravity="center"
-                android:duplicateParentState="true"/>
-
-            <!-- TODO Elevation effect pour Floating button -->
-
-        </com.cafejeunesse.android.floatingactionbutton.FloatingActionButton>
-
-        <com.cafejeunesse.android.common.view.SlidingTabLayout
-            android:id="@+id/sliding_tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/white"/>
-
-
-    </LinearLayout>
-
+    </com.cafejeunesse.android.floatingactionbutton.FloatingActionButton>
 
 </RelativeLayout>
