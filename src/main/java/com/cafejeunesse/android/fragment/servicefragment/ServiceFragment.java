@@ -45,7 +45,6 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
                 " et les milieux de vie des aux personnes de 12 ans et plus");
         mListViewAdapter.add(s);
 
-
         return mView;
     }
 
