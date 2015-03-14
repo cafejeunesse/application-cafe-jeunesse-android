@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- TODO String in string.xml -->
+
     <ImageView
+        android:id="@+id/service_image"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         android:src="@drawable/rectangle_fragment"/>
 
-    <Button
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:text="Partenaires"
+        android:textColor="@color/fragment_title"
+        android:textSize="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/service_sort"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:text="@string/all_service"
         android:padding="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@id/service_image"
         android:background="@color/service_button"/>
 
     <ListView
         android:id="@+id/listview_services"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/service_sort"/>
 
-</LinearLayout>
+</RelativeLayout>

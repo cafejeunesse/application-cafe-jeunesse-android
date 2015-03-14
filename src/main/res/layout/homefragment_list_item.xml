@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/home_screen"
     android:layout_width="match_parent"
     android:layout_height="?android:listPreferredItemHeightLarge"
     android:divider="?android:dividerVertical"
@@ -12,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
         android:layout_toRightOf="@+id/dateLayout"
         android:textColor="@color/news_title"
         android:textStyle="bold"
@@ -27,12 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/dateLayout"
         android:layout_below="@id/home_title"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
         android:textColor="@color/news_subtitle"
         android:singleLine="true"
         android:ellipsize="end"
-        android:text="Description sommaire"
-        />
+        android:text="Description sommaire"/>
 
 
     <FrameLayout
