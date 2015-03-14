@@ -45,8 +45,9 @@
         android:layout_marginTop="52dp"
         android:layout_marginRight="20dp"
         android:layout_alignParentRight="true"
-        android:background="@drawable/fab_background"
-        android:stateListAnimator="@animator/fab_anim">
+        android:background="@drawable/drop_shadow"
+        android:stateListAnimator="@animator/fab_anim"
+        android:foreground="?android:windowContentOverlay">
 
         <ImageView
             android:layout_width="24dp"
