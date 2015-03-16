@@ -1,13 +1,10 @@
 package com.cafejeunesse.android.fragment.servicefragment;
 
-import android.app.Dialog;
-import android.app.DialogFragment;
+import android.app.Fragment;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,12 +19,12 @@ import java.util.Map;
 /**
  * Created by David Levayer on 12/03/15.
  */
-public class ServiceDialogFragment extends DialogFragment {
+public class ServiceDetailsFragment extends Fragment {
 
     private final static float dialogSize = 1f;
     private ListView mListView;
 
-    public ServiceDialogFragment(){
+    public ServiceDetailsFragment(){
 
     }
 
@@ -64,32 +61,5 @@ public class ServiceDialogFragment extends DialogFragment {
         }
 
         return view;
-    }
-
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Dialog dialog = super.onCreateDialog(savedInstanceState);
-
-        // request a window without the title
-        dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        return dialog;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // safety check
-        if (getDialog() == null) {
-            return;
-        }
-
-        DisplayMetrics displaymetrics = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
-        int dialogHeight = (int)(displaymetrics.heightPixels * dialogSize);
-        int dialogWidth = (int)(displaymetrics.widthPixels * dialogSize);
-
-        getDialog().getWindow().setLayout(dialogWidth, dialogHeight);
-
     }
 }

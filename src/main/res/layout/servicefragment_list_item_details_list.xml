@@ -9,7 +9,7 @@
         android:id="@+id/service_details_icon"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="18dp"
         android:src="@drawable/oval_list"/>
 
@@ -31,7 +31,6 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:layout_toRightOf="@id/service_details_icon"
-        android:textStyle="bold"
         android:textSize="15dp"
         android:textColor="@color/fragment_rectangle"
         android:text="Type d'info"/>
@@ -45,9 +44,9 @@
         android:layout_marginTop="-25dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
+        android:paddingBottom="10dp"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:textColor="@android:color/black"
         android:text="Valeur de l'information sur plusieurs lignes"
         android:gravity="left"/>

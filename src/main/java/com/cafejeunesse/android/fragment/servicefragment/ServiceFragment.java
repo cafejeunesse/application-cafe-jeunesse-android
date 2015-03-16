@@ -1,6 +1,7 @@
 package com.cafejeunesse.android.fragment.servicefragment;
 
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,8 +72,10 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
         b.putString(Service.SERVICE_DESCR, s.getServiceDescription());
 
         FragmentManager fm = getFragmentManager();
-        ServiceDialogFragment mDialogFragment = new ServiceDialogFragment();
+        ServiceDetailsFragment mDialogFragment = new ServiceDetailsFragment();
         mDialogFragment.setArguments(b);
-        mDialogFragment.show(fm,"service_dialog_fragment");
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.content_frame, mDialogFragment);
+        ft.commit();
     }
 }
