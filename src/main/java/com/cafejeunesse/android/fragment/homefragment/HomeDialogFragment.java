@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.TextView;
 
 import com.cafejeunesse.android.navigationdrawer.R;
+import com.cafejeunesse.android.structure.News;
 
 /**
  * Created by David Levayer on 09/03/15.
@@ -33,8 +34,8 @@ public class HomeDialogFragment extends DialogFragment {
         this.content = (TextView) view.findViewById(R.id.home_details_description);
 
         Bundle b = getArguments();
-        this.title.setText(b.getString(HomeFragment.HOME_TITLE));
-        this.content.setText(b.getString(HomeFragment.HOME_DESCR));
+        this.title.setText(b.getString(News.NEWS_TITLE));
+        this.content.setText(b.getString(News.NEWS_DESCR));
 
         return view;
     }

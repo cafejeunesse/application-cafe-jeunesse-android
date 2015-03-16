@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/list_selector">
 
     <ImageView
         android:id="@+id/service_details_icon"
@@ -15,25 +16,24 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:src="@drawable/rectangle_date"
-        android:layout_toRightOf="@id/service_details_icon"
+        android:src="@drawable/rectangle_fragment"
+        android:layout_toRightOf="@+id/service_details_type"
         android:layout_below="@id/service_details_icon"
         android:layout_marginTop="-40dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginRight="10dp"/>
 
     <TextView
         android:id="@+id/service_details_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/service_details_icon"
-        android:layout_marginTop="-43dp"
+        android:layout_marginTop="-48dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:layout_alignParentRight="true"
-        android:background="@android:color/white"
+        android:layout_toRightOf="@id/service_details_icon"
         android:textStyle="bold"
-        android:textSize="10dp"
+        android:textSize="15dp"
+        android:textColor="@color/fragment_rectangle"
         android:text="Type d'info"/>
 
     <TextView
@@ -45,8 +45,10 @@
         android:layout_marginTop="-25dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
         android:textStyle="bold"
         android:textSize="20dp"
+        android:textColor="@android:color/black"
         android:text="Valeur de l'information sur plusieurs lignes"
         android:gravity="left"/>
 

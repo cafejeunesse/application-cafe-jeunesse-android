@@ -8,16 +8,16 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.cafejeunesse.android.navigationdrawer.R;
-import com.cafejeunesse.android.structure.Service;
+import com.cafejeunesse.android.structure.ServiceInfoElement;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
- * Created by David Levayer on 12/03/15.
+ * Created by David Levayer on 16/03/15.
  */
-public class ServiceArrayAdapter extends ArrayAdapter<Service> {
+public class ServiceInfoArrayAdapter extends ArrayAdapter<ServiceInfoElement> {
 
-    public ServiceArrayAdapter(Context context, List<Service> objects) {
+    public ServiceInfoArrayAdapter(Context context, ArrayList<ServiceInfoElement> objects) {
         super(context, 0, objects);
     }
 
@@ -25,14 +25,15 @@ public class ServiceArrayAdapter extends ArrayAdapter<Service> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         // Get the data item for this position
-        Service s = getItem(position);
+        ServiceInfoElement sie = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.servicefragment_list_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.servicefragment_list_item_details_list, parent, false);
         }
 
-        ((TextView) convertView.findViewById(R.id.service_name)).setText((String)s.getServiceName());
-        ((TextView) convertView.findViewById(R.id.service_information)).setText(s.getServiceDescription());
+        ((TextView) convertView.findViewById(R.id.service_details_type)).setText(sie.getTag());
+        ((TextView) convertView.findViewById(R.id.service_details_title))
+                .setText((String)sie.getValue());
 
         // Return the completed view to render on screen
         return convertView;

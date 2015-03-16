@@ -4,7 +4,8 @@
     android:layout_height="?android:listPreferredItemHeightLarge"
     android:divider="?android:dividerVertical"
     android:orientation="horizontal"
-    android:showDividers="middle">
+    android:showDividers="middle"
+    android:background="@drawable/list_selector">
 
     <TextView
         android:id="@+id/service_name"

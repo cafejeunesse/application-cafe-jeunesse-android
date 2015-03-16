@@ -1,5 +1,6 @@
 package com.cafejeunesse.android.fragment.servicefragment;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,16 +34,27 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
         mListView.setAdapter(mListViewAdapter);
         mListView.setOnItemClickListener(this);
 
-        // TODO remove when SQL-Lite implemented
-        Service s = new Service();
-        s.setName("Café Jeunesse de Chicoutimi");
-        s.setInformation("Milieu de vie adressé aux jeunes adultes de 18 à 30 ans.");
+        // TODO remove when SQLite implemented
+        Service s = new Service(
+                "Café Jeunesse de Chicoutimi",
+                "Milieu de vie adressé aux jeunes adultes de 18 à 30 ans."
+        );
+        s.addInfo(Service.TAG_FACEBOOK,"https://www.facebook.com/pages/Cafe-Jeunesse-de-Chicoutimi/748417201846712?fref=ts");
+        s.addInfo(Service.TAG_WEBSITE,"http://www.cafejeunesse.com/");
+        s.addInfo(Service.TAG_PRICE,"Gratuit, sauf pour les activités et soupers à 2$ et le dépannage alimentaire au coût de 5$ pour 10 dépannages. ");
+        s.addInfo(Service.TAG_PHONENUMBER,"418 696-2871");
+        s.addInfo(Service.TAG_ADDRESS,"30, rue Jacques-Cartier Ouest, C.P. 8233, Chicoutimi, Québec, G7H 5B7");
+
+
         mListViewAdapter.add(s);
 
-        s = new Service();
-        s.setName("Service de travail de rue de Chicoutimi");
-        s.setInformation("Offre des services dans les lieux de regroupement naturels" +
-                " et les milieux de vie des aux personnes de 12 ans et plus");
+        s = new Service(
+                "Service de travail de rue de Chicoutimi",
+                "Offre des services dans les lieux de regroupement naturels" +
+                        " et les milieux de vie des aux personnes de 12 ans et plus"
+        );
+        s.addInfo(Service.TAG_PHONENUMBER,"418 545-0999");
+        s.addInfo(Service.TAG_ADDRESS,"345, rue Petit – C.P. 8154, Chicoutimi (Québec) G7H 5B7");
         mListViewAdapter.add(s);
 
         return mView;
@@ -50,6 +62,17 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        // TODO
+
+        Service s = (Service) parent.getAdapter().getItem(position);
+
+        Bundle b = new Bundle();
+        b.putSerializable(Service.SERVICE_MAP_INFO, s.getMapInfo());
+        b.putString(Service.SERVICE_TITLE, s.getServiceName());
+        b.putString(Service.SERVICE_DESCR, s.getServiceDescription());
+
+        FragmentManager fm = getFragmentManager();
+        ServiceDialogFragment mDialogFragment = new ServiceDialogFragment();
+        mDialogFragment.setArguments(b);
+        mDialogFragment.show(fm,"service_dialog_fragment");
     }
 }

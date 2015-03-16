@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
     <ImageView
         android:id="@+id/service_image_details"
@@ -13,6 +14,7 @@
         android:src="@drawable/rectangle_fragment"/>
 
     <TextView
+        android:id="@+id/service_details_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Nom du Service"
@@ -38,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/service_details_description"/>
+        android:layout_below="@+id/service_details_description"
+        android:divider="@null"/>
 
 </RelativeLayout>

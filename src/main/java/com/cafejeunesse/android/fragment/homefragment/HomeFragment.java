@@ -34,9 +34,6 @@ import java.util.List;
  */
 public class HomeFragment extends BasicFragment implements Refreshable, AdapterView.OnItemClickListener {
 
-    public final static String HOME_TITLE = "hometitle";
-    public final static String HOME_DESCR = "homedescription";
-
     private ViewPager mViewPager;
     private SlidingTabLayout mSlidingTabLayout;
 
@@ -121,8 +118,8 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
         News n = (News) parent.getAdapter().getItem(position);
 
         Bundle b = new Bundle();
-        b.putString(HOME_TITLE,n.getTitle());
-        b.putString(HOME_DESCR,n.getArticle());
+        b.putString(News.NEWS_TITLE,n.getTitle());
+        b.putString(News.NEWS_DESCR,n.getArticle());
 
         FragmentManager fm = me().getFragmentManager();
         HomeDialogFragment mDialogFragment = new HomeDialogFragment();

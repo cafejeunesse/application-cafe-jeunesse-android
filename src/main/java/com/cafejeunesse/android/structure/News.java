@@ -8,6 +8,10 @@ import java.util.Date;
  * Created by David Levayer on 08/02/15.
  */
 public class News {
+
+    public final static String NEWS_TITLE = "hometitle";
+    public final static String NEWS_DESCR = "homedescription";
+
     private String title;
     private Calendar publishingDate;
     private String article;
