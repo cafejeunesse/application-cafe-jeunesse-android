@@ -10,10 +10,10 @@
     <ImageView
         android:id="@+id/home_image"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="150dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/rectangle_fragment"/>
+        android:src="@drawable/home_banner_grey"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,7 +21,8 @@
         android:text="Café Jeunesse"
         android:textColor="@color/fragment_title"
         android:textSize="35dp"
-        android:layout_marginTop="20dp"
+        android:layout_below="@id/home_image"
+        android:layout_marginTop="-50dp"
         android:layout_marginLeft="20dp"/>
 
     <com.cafejeunesse.android.common.view.SlidingTabLayout
@@ -42,7 +43,8 @@
         android:id="@+id/fab_1"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:layout_marginTop="52dp"
+        android:layout_below="@id/home_image"
+        android:layout_marginTop="-28dp"
         android:layout_marginRight="20dp"
         android:layout_alignParentRight="true"
         android:background="@drawable/drop_shadow"

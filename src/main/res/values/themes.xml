@@ -2,7 +2,7 @@
 
     <style name="AppTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <!-- Style de l'actionBar -->
-        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarStyle">@style/Widget.ActionBar</item>
         <!-- Suppression de l'ombre sur l'actionBar -->
         <item name="android:windowContentOverlay">@null</item>
     </style>
@@ -13,21 +13,10 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="AppTheme.Light.TranslucentActionBar" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/Widget.Light.ActionBar.Transparent</item>
+    <style name="AppTheme.PartiallyTranslucentActionBar">
+        <item name="android:actionBarStyle">@style/Widget.ActionBar.PartiallyTransparent</item>
         <item name="android:windowActionBarOverlay">true</item>
         <item name="android:windowContentOverlay">@null</item>
-    </style>
-
-    <!-- ActionBar styles -->
-    <style name="MyActionBar"
-        parent="@android:style/Widget.ActionBar">
-        <!-- Background de l'actionBar -->
-        <item name="android:background">@color/fragment_rectangle</item>
-        <!-- Suppression des titres l'actionBar -->
-        <item name="android:displayOptions">useLogo|showHome</item>
-        <!-- Icone custom pour l'actionBar -->
-        <item name="android:icon">@drawable/actionbar_icon</item>
     </style>
 
 </resources>

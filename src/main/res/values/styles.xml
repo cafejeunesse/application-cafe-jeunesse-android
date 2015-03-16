@@ -3,18 +3,21 @@
 
     <style name="Widget" />
 
-    <style name="Widget.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse" />
-
-    <style name="Widget.Light" />
-
-    <style name="Widget.Light.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid" />
+    <style name="Widget.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse" >
+        <!-- Background de l'actionBar -->
+        <item name="android:background">@color/actionbar</item>
+        <!-- Suppression des titres l'actionBar -->
+        <item name="android:displayOptions">useLogo|showHome</item>
+        <!-- Icone custom pour l'actionBar -->
+        <item name="android:icon">@drawable/actionbar_icon</item>
+    </style>
 
     <style name="Widget.ActionBar.Transparent">
         <item name="android:background">@android:color/transparent</item>
     </style>
 
-    <style name="Widget.Light.ActionBar.Transparent">
-        <item name="android:background">@android:color/transparent</item>
+    <style name="Widget.ActionBar.PartiallyTransparent">
+        <item name="android:background">@color/actionbar</item>
     </style>
 
 </resources>

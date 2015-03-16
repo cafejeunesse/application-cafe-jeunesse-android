@@ -55,8 +55,7 @@
             android:gravity="center"
             android:textColor="@color/news_date"
             android:textStyle="bold"
-            android:text="20"
-            android:layout_marginTop="2dp"/>
+            android:text="20"/>
 
         <TextView
             android:id="@+id/home_date_month"
@@ -66,7 +65,7 @@
             android:gravity="center"
             android:textColor="@color/news_date"
             android:text="févr."
-            android:layout_marginTop="23dp"/>
+            android:layout_marginTop="21dp"/>
 
     </FrameLayout>
 

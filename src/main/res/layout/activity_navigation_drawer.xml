@@ -28,7 +28,7 @@
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"/>
 
     <!-- android:layout_gravity="start" tells DrawerLayout to treat
          this as a sliding drawer on the left side for left-to-right
@@ -38,7 +38,7 @@
          with the content view. -->
     <ListView
         android:id="@+id/left_drawer"
-        android:paddingTop="10dp"
+        android:paddingTop="55dp"
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
