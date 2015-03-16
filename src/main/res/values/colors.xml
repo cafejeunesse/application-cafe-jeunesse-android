@@ -9,8 +9,8 @@
     <color name="actionbar">#af5C6BC0</color>
 
     <color name="menu_text">#000</color>
-    <color name="menu_unselected">#FFF</color>
-    <color name="menu_pressed">#CFD8DC</color>
+    <color name="list_item_background_unselected">#FFF</color>
+    <color name="list_item_background_pressed">#ECEFF1</color>
 
     <color name="menu_selected">@color/accent_color</color>
 
