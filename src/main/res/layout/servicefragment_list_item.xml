@@ -35,18 +35,12 @@
         android:ellipsize="end"
         android:text="Description sommaire"/>
 
-    <FrameLayout
+    <ImageView
         android:id="@+id/service_icon"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="18dp"
-        android:layout_marginLeft="18dp">
-
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:src="@drawable/oval_list"/>
-
-    </FrameLayout>
+        android:layout_marginLeft="18dp"
+        android:src="@drawable/oval_list"/>
 
 </RelativeLayout>
