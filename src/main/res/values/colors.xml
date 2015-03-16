@@ -2,10 +2,11 @@
 <resources>
 
     <color name="main_color">#3F51B5</color>
+    <color name="main_color_soft">#5C6BC0</color>
     <color name="main_color_negative">#FFFFFF</color>
     <color name="accent_color">#FFF59D</color>
 
-    <color name="actionbar">#af3F51B5</color>
+    <color name="actionbar">#af5C6BC0</color>
 
     <color name="menu_text">#000</color>
     <color name="menu_unselected">#FFF</color>
@@ -19,7 +20,7 @@
     <color name="news_date_rectangle">#9FA8DA</color>
 
     <color name="fragment_title">@color/main_color_negative</color>
-    <color name="fragment_rectangle">@color/main_color</color>
+    <color name="fragment_rectangle">@color/main_color_soft</color>
 
     <color name="service_button">#cacbcc</color>
 
