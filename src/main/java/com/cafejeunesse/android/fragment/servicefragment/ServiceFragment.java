@@ -76,6 +76,7 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
         mDialogFragment.setArguments(b);
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.content_frame, mDialogFragment);
+        ft.addToBackStack(null);
         ft.commit();
     }
 }
