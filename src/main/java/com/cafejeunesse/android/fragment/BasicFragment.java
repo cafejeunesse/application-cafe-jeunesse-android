@@ -13,6 +13,7 @@ public abstract class BasicFragment extends Fragment {
     protected Context mContext;
 
     protected final void initFragment(){
+
         mContext = getActivity();
     }
 

@@ -2,5 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- TODO gestion de taille d'écran différentes : dimens, colors, etc. -->
+
+    <!-- Partie commune aux fragments -->
+    <dimen name="basicfragment_toprectangle_size">150dp</dimen>
+    <dimen name="basicfragment_title_size">35dp</dimen>
+
 </resources>

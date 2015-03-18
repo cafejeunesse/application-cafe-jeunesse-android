@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/service_image"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/basicfragment_toprectangle_size"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/rectangle_fragment"/>
@@ -18,9 +18,9 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Partenaires"
+        android:text="@string/servicefragment_title"
         android:textColor="@color/fragment_title"
-        android:textSize="35dp"
+        android:textSize="@dimen/basicfragment_title_size"
         android:layout_below="@id/service_image"
         android:layout_marginTop="-50dp"
         android:layout_marginLeft="20dp"/>

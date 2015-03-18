@@ -18,8 +18,14 @@
     <string name="action_websearch">Web search</string>
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
 
-    <!-- Fragment "Service" -->
+    <!-- Fragment Home -->
+    <string name="homefragment_title">Café Jeunesse</string>
+
+    <!-- Fragment Service -->
+    <string name="servicefragment_title">Partenaires</string>
     <string name="all_service">Toutes les catégories</string>
     <string name="custom_service">Catégories personnalisée</string>
+
+    <!-- Fragment Cafe -->
 
 </resources>
