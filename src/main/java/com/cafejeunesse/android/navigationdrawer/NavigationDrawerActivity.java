@@ -38,7 +38,7 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
         super.onCreate(savedInstanceState);
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
-        ActionBar mActionBar = getActionBar();
+        final ActionBar mActionBar = getActionBar();
         mActionBar.setDisplayShowTitleEnabled(false);
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeButtonEnabled(true);
@@ -48,6 +48,9 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
         mMenuTitles = getResources().getStringArray(R.array.menu_titles_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
+        View mDrawerImage = getLayoutInflater().inflate(R.layout.activity_drawer_image,null);
+        mDrawerList.addHeaderView(mDrawerImage);
 
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -61,13 +64,33 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
 
         mDrawerList.setOnItemClickListener(this);
 
-        mDrawerToggle = new ActionBarDrawerToggle(this,mDrawerLayout,
-                R.string.drawer_open,R.string.drawer_close);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+                R.string.drawer_open, R.string.drawer_close) {
+
+            private boolean shouldHide = true;
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                mActionBar.setIcon(R.drawable.actionbar_icon);
+                shouldHide = true;
+                invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+            }
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                if(shouldHide){
+                    mActionBar.setIcon(android.R.color.transparent);
+                    invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                    shouldHide = false;
+                }
+            }
+        };
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         if (savedInstanceState == null) {
-            selectItem(0);
+            selectItem(1);git
         }
     }
 
@@ -123,10 +146,10 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
         Fragment fragment;
 
         switch(position){
-            case 1:
+            case 2:
                 fragment = new CafeFragment();
                 break;
-            case 2:
+            case 3:
                 fragment = new ServiceFragment();
                 break;
             default:
