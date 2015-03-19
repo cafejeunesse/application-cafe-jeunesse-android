@@ -8,10 +8,10 @@
     <ImageView
         android:id="@+id/service_image_details"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/rectangle_fragment"/>
+        android:src="@drawable/rectangle_servicefragment"/>
 
     <TextView
         android:id="@+id/service_details_title"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="Nom du Service"
         android:textColor="@color/fragment_title"
-        android:textSize="35dp"
+        android:textSize="@dimen/basicfragment_title_size"
         android:layout_below="@id/service_image_details"
         android:layout_marginTop="-50dp"
         android:layout_marginLeft="20dp"/>
@@ -32,8 +32,7 @@
         android:layout_below="@id/service_image_details"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="18dp"
-        android:layout_marginRight="10dp"
-        android:text="The second one affects the View's position inside its parent, in other words - aligning the object itself (edit box or text view) inside the parent view."/>
+        android:layout_marginRight="10dp"/>
 
     <ListView
         android:id="@+id/listview_services_details"

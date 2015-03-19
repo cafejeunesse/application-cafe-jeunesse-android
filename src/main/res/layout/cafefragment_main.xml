@@ -43,24 +43,31 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"/>
 
-    <TextView
-        android:id="@+id/cafe_maintext"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/cafefragment_text"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@color/text_content"
         android:layout_below="@id/cafe_subtitle"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_above="@+id/cafe_button_rules">
+
+        <TextView
+            android:id="@+id/cafe_maintext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cafefragment_text"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/text_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+    </ScrollView>
 
     <Button
         android:id="@+id/cafe_button_rules"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cafe_maintext"
-        android:layout_margin="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:textColor="@color/main_color_negative"
         android:text="@string/cafefragment_button"

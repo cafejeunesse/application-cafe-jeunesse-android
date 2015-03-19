@@ -16,7 +16,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:src="@drawable/rectangle_fragment"
+        android:src="@drawable/rectangle_servicefragment"
         android:layout_toRightOf="@+id/service_details_type"
         android:layout_below="@id/service_details_icon"
         android:layout_marginTop="-40dp"

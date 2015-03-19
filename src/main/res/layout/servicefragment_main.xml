@@ -14,7 +14,7 @@
         android:layout_height="@dimen/basicfragment_toprectangle_size"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/rectangle_fragment"/>
+        android:src="@drawable/service_banner_grey"/>
 
     <TextView
         android:layout_width="fill_parent"
@@ -26,23 +26,29 @@
         android:layout_marginTop="-50dp"
         android:layout_marginLeft="20dp"/>
 
+    <ImageView
+        android:id="@+id/service_line"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/service_image"
+        android:src="@drawable/rectangle_servicefragment"/>
+
     <Button
-        android:id="@+id/service_sort"
+        android:id="@+id/service_button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/all_service"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_below="@id/service_image"
-        android:background="@color/service_button"/>
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/main_color_negative"
+        android:background="@drawable/rectangle_servicefragment"/>
 
     <ListView
         android:id="@+id/listview_services"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/service_sort"/>
+        android:layout_below="@id/service_line"
+        android:layout_above="@id/service_button"/>
 
 </RelativeLayout>
