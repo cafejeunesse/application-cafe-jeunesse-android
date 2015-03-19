@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.cafejeunesse.android.fragment.cafefragment.CafeFragment;
 import com.cafejeunesse.android.fragment.homefragment.HomeFragment;
 import com.cafejeunesse.android.fragment.servicefragment.ServiceFragment;
 
@@ -122,6 +123,9 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
         Fragment fragment;
 
         switch(position){
+            case 1:
+                fragment = new CafeFragment();
+                break;
             case 2:
                 fragment = new ServiceFragment();
                 break;

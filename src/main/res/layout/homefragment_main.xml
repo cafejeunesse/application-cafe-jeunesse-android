@@ -57,8 +57,6 @@
             android:layout_gravity="center"
             android:duplicateParentState="true"/>
 
-        <!-- TODO Elevation effect pour Floating button -->
-
     </com.cafejeunesse.android.floatingactionbutton.FloatingActionButton>
 
 </RelativeLayout>

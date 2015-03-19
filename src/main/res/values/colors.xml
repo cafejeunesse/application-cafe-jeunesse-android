@@ -6,6 +6,7 @@
     <color name="main_color_negative">#FFFFFF</color>
 
     <color name="accent_color">#FFD54F</color>
+    <color name="text_content">#424242</color>
 
     <color name="homefragment_accent_color">#FFCA28</color>
     <color name="cafefragment_accent_color">#EF5350</color>
@@ -29,7 +30,7 @@
 
     <color name="light_gray2">#cacbcc</color>
 
-    <color name="fab_color_1">@color/accent_color_selector</color>
+    <color name="fab_color_1">@color/homefragment_accent_color</color>
     <color name="fab_color_1_muted">#ffeb64</color>
     <color name="fab_color_2">@color/news_date_rectangle</color>
     <color name="fab_color_2_muted">#c0e8fe</color>
