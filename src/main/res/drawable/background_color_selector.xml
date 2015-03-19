@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:drawable="@color/list_item_background_pressed" android:state_pressed="true"/>
-    <item android:drawable="@color/menu_selected" android:state_activated="true"/>
+    <item android:drawable="@color/list_item_background_pressed" android:state_activated="true"/>
     <item android:drawable="@color/list_item_background_unselected" android:state_activated="false"/>
 
 </selector>

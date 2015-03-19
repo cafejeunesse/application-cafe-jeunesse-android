@@ -4,7 +4,7 @@
     android:divider="?android:dividerVertical"
     android:orientation="horizontal"
     android:showDividers="middle"
-    android:background="@drawable/list_selector">
+    android:background="@drawable/background_color_selector">
 
     <TextView
         android:id="@+id/home_title"

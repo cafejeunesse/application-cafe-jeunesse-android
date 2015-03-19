@@ -9,14 +9,13 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -52,9 +51,12 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
-        // set up the drawer's list view with items and click listener
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.list_item_drawer, mMenuTitles));
+        NavDrawerItem[] mItems = new NavDrawerItem[mMenuTitles.length];
+        for(int i=0; i<mMenuTitles.length; i++){
+            mItems[i] = new NavDrawerItem(i,mMenuTitles[i]);
+        }
+
+        mDrawerList.setAdapter(new DrawerAdapter(this,R.layout.activity_list_item_drawer,mItems));
 
         mDrawerList.setOnItemClickListener(this);
 

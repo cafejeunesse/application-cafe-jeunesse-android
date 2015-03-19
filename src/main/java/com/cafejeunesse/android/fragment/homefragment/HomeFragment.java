@@ -59,11 +59,7 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // Chargement générique des fragments de l'application
-        initFragment();
-
-        // Chargement spécifique au fragment
-        mView = inflater.inflate(R.layout.homefragment_main, container, false);
-
+        initFragment(inflater, container, R.layout.homefragment_main);
         return mView;
     }
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <declare-styleable name="current_fragment">
+        <attr name="homeFragment" format="boolean"/>
+        <attr name="serviceFragment" format="boolean"/>
+        <attr name="cafeFragment" format="boolean"/>
+    </declare-styleable>
+
+</resources>

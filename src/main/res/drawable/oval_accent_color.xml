@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item app:homeFragment="true">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
+            <stroke android:width="3dp" android:color="@color/homefragment_accent_color" />
+        </shape>
+    </item>
+
+    <item app:cafeFragment="true">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
+            <stroke android:width="3dp" android:color="@color/cafefragment_accent_color" />
+        </shape>
+    </item>
+
+    <item app:serviceFragment="true">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
+            <stroke android:width="3dp" android:color="@color/servicefragment_accent_color" />
+        </shape>
+    </item>
+
+    <item app:serviceFragment="false"
+        app:homeFragment="false"
+        app:cafeFragment="false">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
+            <stroke android:width="3dp" android:color="@color/list_item_background_pressed" />
+        </shape>
+    </item>
+
+
+</selector>
+

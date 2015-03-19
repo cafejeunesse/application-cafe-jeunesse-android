@@ -26,10 +26,9 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // Chargement générique des fragments de l'application
-        initFragment();
+        initFragment(inflater, container, R.layout.servicefragment_main);
 
         // Chargement spécifique au fragment
-        mView = inflater.inflate(R.layout.servicefragment_main, container, false);
         mListView = (ListView)mView.findViewById(R.id.listview_services);
         mListViewAdapter = new ServiceArrayAdapter(mContext, new ArrayList<Service>());
         mListView.setAdapter(mListViewAdapter);
