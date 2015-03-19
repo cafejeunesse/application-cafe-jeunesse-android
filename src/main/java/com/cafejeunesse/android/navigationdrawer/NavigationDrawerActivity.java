@@ -90,7 +90,7 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         if (savedInstanceState == null) {
-            selectItem(1);git
+            selectItem(1);
         }
     }
 
