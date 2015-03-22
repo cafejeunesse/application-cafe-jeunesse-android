@@ -9,11 +9,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.cafejeunesse.android.database.ServiceDataSource;
 import com.cafejeunesse.android.fragment.BasicFragment;
 import com.cafejeunesse.android.navigationdrawer.R;
 import com.cafejeunesse.android.structure.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by David Levayer on 12/03/15.
@@ -35,27 +37,18 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
         mListView.setOnItemClickListener(this);
 
         // TODO remove when SQLite implemented
-        Service s = new Service(
-                "Café Jeunesse de Chicoutimi",
-                "Milieu de vie adressé aux jeunes adultes de 18 à 30 ans."
-        );
-        s.addInfo(Service.TAG_FACEBOOK,"https://www.facebook.com/pages/Cafe-Jeunesse-de-Chicoutimi/748417201846712?fref=ts");
-        s.addInfo(Service.TAG_WEBSITE,"http://www.cafejeunesse.com/");
-        s.addInfo(Service.TAG_PRICE,"Gratuit, sauf pour les activités et soupers à 2$ et le dépannage alimentaire au coût de 5$ pour 10 dépannages. ");
-        s.addInfo(Service.TAG_PHONENUMBER,"418 696-2871");
-        s.addInfo(Service.TAG_ADDRESS,"30, rue Jacques-Cartier Ouest, C.P. 8233, Chicoutimi, Québec, G7H 5B7");
+        // TODO refactor pour rendre l'import transparent ?
+        ServiceDataSource mDataSource = new ServiceDataSource(getActivity());
+        mDataSource.open();
+        List<Service> values = mDataSource.getAllServices();
 
+        if(values.size() == 0) {
+            mDataSource.importDataFromAsset(ServiceDataSource.NEWDB_FILEPATH);
+            values = mDataSource.getAllServices();
+        }
 
-        mListViewAdapter.add(s);
-
-        s = new Service(
-                "Service de travail de rue de Chicoutimi",
-                "Offre des services dans les lieux de regroupement naturels" +
-                        " et les milieux de vie des aux personnes de 12 ans et plus"
-        );
-        s.addInfo(Service.TAG_PHONENUMBER,"418 545-0999");
-        s.addInfo(Service.TAG_ADDRESS,"345, rue Petit – C.P. 8154, Chicoutimi (Québec) G7H 5B7");
-        mListViewAdapter.add(s);
+        for(Service s: values)
+            mListViewAdapter.add(s);
 
         return mView;
     }

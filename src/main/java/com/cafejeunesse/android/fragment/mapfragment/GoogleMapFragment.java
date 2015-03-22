@@ -7,7 +7,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +32,6 @@ import java.util.List;
  */
 public class GoogleMapFragment extends BasicFragment
         implements GoogleMap.OnInfoWindowClickListener {
-
-    private final static String NEWDB_FILEPATH = Environment.getExternalStorageDirectory().getPath()+"/cafeDB.sqlite";
 
     protected View mView;
     protected Context mContext;
@@ -176,12 +173,12 @@ public class GoogleMapFragment extends BasicFragment
 
         if(mDataSource == null){
             mDataSource = new ServiceDataSource(getActivity());
-
+            // TODO refactor pour rendre l'import transparent ?
             mDataSource.open();
             List<Service> values = mDataSource.getAllServices();
 
             if(values.size() == 0) {
-                mDataSource.importDataFromAsset(NEWDB_FILEPATH);
+                mDataSource.importDataFromAsset(ServiceDataSource.NEWDB_FILEPATH);
                 values = mDataSource.getAllServices();
             }
 

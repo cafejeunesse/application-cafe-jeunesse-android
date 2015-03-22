@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 
 import com.cafejeunesse.android.structure.Service;
 
@@ -17,6 +18,8 @@ public class ServiceDataSource {
 
     private Context mContext;
     private int mCurrentVersion;
+
+    public final static String NEWDB_FILEPATH = Environment.getExternalStorageDirectory().getPath()+"/cafeDB.sqlite";
 
     // Database fields
     private SQLiteDatabase database;
@@ -87,14 +90,7 @@ public class ServiceDataSource {
         values.put(DatabaseOpenHelper.COLUMN_LAT, service.getLat());
         values.put(DatabaseOpenHelper.COLUMN_LON, service.getLon());
 
-        long insertId = database.insert(DatabaseOpenHelper.TABLE_SERVICES, null,
-                values);
-        Cursor cursor = database.query(DatabaseOpenHelper.TABLE_SERVICES,
-                allColumns, DatabaseOpenHelper.COLUMN_ID + " = " + insertId, null,
-                null, null, null);
-
-        cursor.moveToFirst();
-        cursor.close();
+        database.insert(DatabaseOpenHelper.TABLE_SERVICES, null, values);
     }
 
     private Service cursorToService(Cursor cursor) {
@@ -111,7 +107,7 @@ public class ServiceDataSource {
             service.addInfo(Service.TAG_FACEBOOK,cursor.getString(7));
             service.addInfo(Service.TAG_ADDRESS,cursor.getString(8));
             //service.addInfo(Service.TAG_CATEGORIES,cursor.getString(9));
-            service.addInfo(Service.TAG_KEYWORDS,cursor.getString(10));
+            service.addInfo(Service.TAG_KEYWORDS, cursor.getString(10));
             service.setLat(cursor.getFloat(11));
             service.setLon(cursor.getFloat(12));
             return service;
