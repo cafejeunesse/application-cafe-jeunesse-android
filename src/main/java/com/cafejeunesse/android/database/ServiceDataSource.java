@@ -16,6 +16,7 @@ import java.util.List;
 public class ServiceDataSource {
 
     private Context mContext;
+    private int mCurrentVersion;
 
     // Database fields
     private SQLiteDatabase database;
@@ -38,6 +39,7 @@ public class ServiceDataSource {
     public ServiceDataSource(Context context) {
         dbHelper = new DatabaseOpenHelper(context);
         mContext = context;
+        mCurrentVersion = 0;
     }
 
     public void open() {
@@ -48,7 +50,28 @@ public class ServiceDataSource {
         dbHelper.close();
     }
 
-    public Service createCustomMarker(Service service) {
+    public void importDataFromAsset(String filePath){
+
+        // Retire les services de la base de données
+        dbHelper.onUpgrade(database,mCurrentVersion,mCurrentVersion+1);
+        mCurrentVersion++;
+
+        SQLiteDatabase newDatabase = SQLiteDatabase.openDatabase(
+                filePath,
+                null,
+                SQLiteDatabase.OPEN_READONLY);
+
+        if(newDatabase != null){
+            List<Service> newServices = getAllServices(newDatabase);
+
+            for(Service s: newServices)
+                createService(s);
+
+            newDatabase.close();
+        }
+    }
+
+    public void createService(Service service) {
 
         ContentValues values = new ContentValues();
         values.put(DatabaseOpenHelper.COLUMN_NAME, service.getServiceName());
@@ -69,28 +92,32 @@ public class ServiceDataSource {
         Cursor cursor = database.query(DatabaseOpenHelper.TABLE_SERVICES,
                 allColumns, DatabaseOpenHelper.COLUMN_ID + " = " + insertId, null,
                 null, null, null);
+
         cursor.moveToFirst();
-        Service newService = cursorToCustomService(cursor);
         cursor.close();
-        return newService;
     }
 
-    private Service cursorToCustomService(Cursor cursor) {
-        Service service = new Service();
-        service.setId(cursor.getLong(0));
-        service.setServiceName(cursor.getString(1));
-        service.addInfo(Service.TAG_PHONENUMBER,cursor.getString(2));
-        service.setServiceDescription(cursor.getString(3));
-        //service.addInfo(Service.TAG_SERVICES,cursor.getString(4));
-        service.addInfo(Service.TAG_PRICE,cursor.getString(5));
-        service.addInfo(Service.TAG_WEBSITE,cursor.getString(6));
-        service.addInfo(Service.TAG_FACEBOOK,cursor.getString(7));
-        service.addInfo(Service.TAG_ADDRESS,cursor.getString(8));
-        //service.addInfo(Service.TAG_CATEGORIES,cursor.getString(9));
-        service.addInfo(Service.TAG_KEYWORDS,cursor.getString(10));
-        service.setLat(cursor.getFloat(11));
-        service.setLon(cursor.getFloat(12));
-        return service;
+    private Service cursorToService(Cursor cursor) {
+
+        if(cursor != null){
+            Service service = new Service();
+            service.setId(cursor.getLong(0));
+            service.setServiceName(cursor.getString(1));
+            service.addInfo(Service.TAG_PHONENUMBER,cursor.getString(2));
+            service.setServiceDescription(cursor.getString(3));
+            //service.addInfo(Service.TAG_SERVICES,cursor.getString(4));
+            service.addInfo(Service.TAG_PRICE,cursor.getString(5));
+            service.addInfo(Service.TAG_WEBSITE,cursor.getString(6));
+            service.addInfo(Service.TAG_FACEBOOK,cursor.getString(7));
+            service.addInfo(Service.TAG_ADDRESS,cursor.getString(8));
+            //service.addInfo(Service.TAG_CATEGORIES,cursor.getString(9));
+            service.addInfo(Service.TAG_KEYWORDS,cursor.getString(10));
+            service.setLat(cursor.getFloat(11));
+            service.setLon(cursor.getFloat(12));
+            return service;
+        }
+
+        return null;
     }
 
     public void deleteService(Service service) {
@@ -103,20 +130,24 @@ public class ServiceDataSource {
         database.delete(DatabaseOpenHelper.TABLE_SERVICES, null, null);
     }
 
-    public List<Service> getAllCustomMarkers() {
-        List<Service> comments = new ArrayList<Service>();
+    public List<Service> getAllServices() {
+        return getAllServices(database);
+    }
 
-        Cursor cursor = database.query(DatabaseOpenHelper.TABLE_SERVICES,
+    private List<Service> getAllServices(SQLiteDatabase db){
+        List<Service> services = new ArrayList<Service>();
+
+        Cursor cursor = db.query(DatabaseOpenHelper.TABLE_SERVICES,
                 allColumns, null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
-            Service comment = cursorToCustomService(cursor);
-            comments.add(comment);
+            Service comment = cursorToService(cursor);
+            services.add(comment);
             cursor.moveToNext();
         }
         // make sure to close the cursor
         cursor.close();
-        return comments;
+        return services;
     }
 }

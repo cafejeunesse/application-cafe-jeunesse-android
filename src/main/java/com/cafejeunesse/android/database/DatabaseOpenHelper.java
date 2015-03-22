@@ -10,7 +10,9 @@ import android.widget.Toast;
  */
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
-    public static final String TABLE_SERVICES = "cafejeunesseservices";
+    public static String DB_PATH = "/data/data/android.cafejeunesse.com.cafejeunesse/databases/";
+
+    public static final String TABLE_SERVICES = "Services";
 
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "Nom";
@@ -21,12 +23,12 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public static final String COLUMN_WEBSITE = "siteweb";
     public static final String COLUMN_FACEBOOK = "pagefacebook";
     public static final String COLUMN_ADDRESS = "adresse";
-    public static final String COLUMN_CATEGORIES = "catégories";
+    public static final String COLUMN_CATEGORIES = "categories";
     public static final String COLUMN_KEYWORDS = "motscles";
     public static final String COLUMN_LAT = "latitude";
     public static final String COLUMN_LON = "longitude";
 
-    private static final String DATABASE_NAME = "services.db";
+    public static final String DB_NAME = "cafeDB.sqlite";
     private static final int DATABASE_VERSION = 1;
 
     private Context mContext;
@@ -50,7 +52,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
             +");";
 
     public DatabaseOpenHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, DB_NAME, null, DATABASE_VERSION);
         mContext = context;
     }
 
