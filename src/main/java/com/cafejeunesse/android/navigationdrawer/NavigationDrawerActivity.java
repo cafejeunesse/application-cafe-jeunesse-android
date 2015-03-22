@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.cafejeunesse.android.fragment.cafefragment.CafeFragment;
 import com.cafejeunesse.android.fragment.homefragment.HomeFragment;
+import com.cafejeunesse.android.fragment.mapfragment.GoogleMapFragment;
 import com.cafejeunesse.android.fragment.servicefragment.ServiceFragment;
 
 /**
@@ -151,6 +152,9 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
                 break;
             case 3:
                 fragment = new ServiceFragment();
+                break;
+            case 4:
+                fragment = new GoogleMapFragment();
                 break;
             default:
                 fragment = new HomeFragment();

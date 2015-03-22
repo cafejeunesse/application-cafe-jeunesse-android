@@ -14,17 +14,17 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "Nom";
-    public static final String COLUMN_PHONE = "Téléphone";
-    public static final String COLUMN_INFO = "Description";
-    public static final String COLUMN_SERVICES = "Services";
-    public static final String COLUMN_PRICE = "Tarif";
-    public static final String COLUMN_WEBSITE = "Site web";
-    public static final String COLUMN_FACEBOOK = "page Facebook";
-    public static final String COLUMN_ADDRESS = "Adresse";
-    public static final String COLUMN_CATEGORIES = "Catégorie(s)";
-    public static final String COLUMN_KEYWORDS = "Mots clés";
-    public static final String COLUMN_LAT = "Latitude";
-    public static final String COLUMN_LON = "Longitude";
+    public static final String COLUMN_PHONE = "telephone";
+    public static final String COLUMN_INFO = "description";
+    public static final String COLUMN_SERVICES = "services";
+    public static final String COLUMN_PRICE = "tarif";
+    public static final String COLUMN_WEBSITE = "siteweb";
+    public static final String COLUMN_FACEBOOK = "pagefacebook";
+    public static final String COLUMN_ADDRESS = "adresse";
+    public static final String COLUMN_CATEGORIES = "catégories";
+    public static final String COLUMN_KEYWORDS = "motscles";
+    public static final String COLUMN_LAT = "latitude";
+    public static final String COLUMN_LON = "longitude";
 
     private static final String DATABASE_NAME = "services.db";
     private static final int DATABASE_VERSION = 1;

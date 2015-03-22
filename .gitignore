@@ -39,3 +39,6 @@ proguard/
 
 # Log Files
 *.log
+
+# Google API key
+src/main/res/values/google_api_key.xml

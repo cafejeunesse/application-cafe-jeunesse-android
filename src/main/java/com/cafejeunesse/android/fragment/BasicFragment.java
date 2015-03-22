@@ -16,6 +16,7 @@ public abstract class BasicFragment extends Fragment {
     public final static int HOMEFRAGMENT_ID = 0;
     public final static int CAFEFRAGMENT_ID = 1;
     public final static int SERVICEFRAGMENT_ID = 2;
+    public final static int GOOGLEMAPFRAGMENT_ID = 3;
 
     protected View mView;
     protected Context mContext;

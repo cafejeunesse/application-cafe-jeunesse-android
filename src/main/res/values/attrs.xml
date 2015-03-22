@@ -6,6 +6,7 @@
         <attr name="homeFragment" format="boolean"/>
         <attr name="serviceFragment" format="boolean"/>
         <attr name="cafeFragment" format="boolean"/>
+        <attr name="googlemapFragment" format="boolean"/>
     </declare-styleable>
 
 </resources>

@@ -19,6 +19,11 @@
         app:serviceFragment="true"/>
 
     <item
+        android:color="@color/googlemapfragment_accent_color"
+        android:state_activated="true"
+        app:googlemapFragment="true"/>
+
+    <item
         android:color="@color/homefragment_accent_color"
         android:state_pressed="true"
         app:homeFragment="true"/>
@@ -32,6 +37,11 @@
         android:color="@color/servicefragment_accent_color"
         android:state_pressed="true"
         app:serviceFragment="true"/>
+
+    <item
+        android:color="@color/googlemapfragment_accent_color"
+        android:state_pressed="true"
+        app:googlemapFragment="true"/>
 
     <item android:color="@color/menu_text" android:state_activated="false"/>
 
