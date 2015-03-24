@@ -1,2 +1,2 @@
 # application-cafe-jeunesse-android
-Dépot pour application Android du Café Jeunesse
+Dépôt pour application Android du Café Jeunesse
