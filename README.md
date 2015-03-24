@@ -14,3 +14,4 @@ Créer le fichier `app/src/main/res/values/google_api_key.xml` insérer:
 Remplacer `INSERT_YOUR_KEY_HERE` par votre clé. ;)
 
 Voir [console.developers.google.com](https://console.developers.google.com/)
+[Plus de détails](https://developers.google.com/maps/documentation/android/start#get_an_android_certificate_and_the_google_maps_api_key)
