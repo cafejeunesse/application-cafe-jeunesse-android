@@ -192,17 +192,19 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
                     default:
                 }
 
-                for(News n: mNews)
-                    mListViewAdapter.add(n);
+                if (mNews != null) {
+                    for(News n: mNews)
+                        mListViewAdapter.add(n);
+                }
 
-            } catch (FileNotFoundException e){
+            } catch (FileNotFoundException ignored){
 
             } catch (XmlPullParserException e){
                 // TODO export dans un String.xml
-                Toast.makeText(mContext,"Erreur lors de la lecture du fichier XML",Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext,mContext.getString(R.string.error_while_reading_xml),Toast.LENGTH_LONG).show();
             } catch (IOException e){
                 // TODO export dans un String.xml
-                Toast.makeText(mContext,"Erreur lors de l'ouverture du fichier XML",Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext,mContext.getString(R.string.error_on_xml_file_open),Toast.LENGTH_LONG).show();
             }
         }
 

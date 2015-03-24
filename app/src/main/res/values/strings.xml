@@ -32,5 +32,15 @@
     <string name="cafefragment_text">Depuis 1987, la mission du Café-Jeunesse de Chicoutimi est d\'accueillir et de rejoindre les jeunes adultes âgés entre 18 et 30 ans; les accompagner dans leurs démarches de prise en charge individuelle et/ou collective.
         \n\nNous tentons aussi de faire naître, développer et soutenir des groupes selon des problématiques spécifiques pour répondre aux besoins vécus pas les jeunes adultes. </string>
     <string name="cafefragment_button">Voir les règles de vie</string>
+    <string name="error_while_reading_xml">Erreur lors de la lecture du fichier XML</string>
+    <string name="error_on_xml_file_open">Erreur lors de l\'ouverture du fichier XML</string>
+    <string name="line">Ligne</string>
+    <string name="saguenay">Saguenay</string>
+    <string name="cafe_jeunesse">Café Jeunesse</string>
+    <string name="fab_icon">Icône fab</string>
+    <string name="name_of_service">Nom du service</string>
+    <string name="description_exerp">Description sommaire</string>
+    <string name="info_type">Type d\'info</string>
+    <string name="multi_line_information">Valeur de l\'information sur plusieurs lignes</string>
 
 </resources>

@@ -20,7 +20,7 @@
         android:textStyle="bold"
         android:singleLine="true"
         android:ellipsize="end"
-        android:text="Nom du service"/>
+        android:text="@string/name_of_service"/>
 
     <TextView
         android:id="@+id/service_information"
@@ -34,7 +34,7 @@
         android:textColor="@color/news_subtitle"
         android:singleLine="true"
         android:ellipsize="end"
-        android:text="Description sommaire"/>
+        android:text="@string/description_exerp"/>
 
     <ImageView
         android:id="@+id/service_icon"

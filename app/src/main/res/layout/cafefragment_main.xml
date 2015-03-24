@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/cafe_image"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/basicfragment_toprectangle_size"
+        android:layout_height="@dimen/basic_fragment_toprectangle_size"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/cafe_banner_grey"/>
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cafefragment_title"
         android:textColor="@color/fragment_title"
-        android:textSize="@dimen/basicfragment_title_size"
+        android:textSize="@dimen/basic_fragment_title_size"
         android:layout_below="@id/cafe_image"
         android:layout_marginTop="-50dp"
         android:layout_marginLeft="20dp"/>
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cafefragment_subtitle"
         android:textAppearance="?android:textAppearanceLarge"
-        android:textColor="@color/cafefragment_accent_color"
+        android:textColor="@color/cafe_fragment_accent_color"
         android:layout_below="@id/cafe_line"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"/>

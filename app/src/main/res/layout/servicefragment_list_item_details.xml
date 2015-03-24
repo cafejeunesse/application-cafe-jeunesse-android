@@ -11,15 +11,15 @@
         android:layout_height="100dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/rectangle_servicefragment"/>
+        android:src="@drawable/rectangle_service_fragment"/>
 
     <TextView
         android:id="@+id/service_details_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Nom du Service"
+        android:text="@string/name_of_service"
         android:textColor="@color/fragment_title"
-        android:textSize="@dimen/basicfragment_title_size"
+        android:textSize="@dimen/basic_fragment_title_size"
         android:layout_below="@id/service_image_details"
         android:layout_marginTop="-50dp"
         android:layout_marginLeft="20dp"/>

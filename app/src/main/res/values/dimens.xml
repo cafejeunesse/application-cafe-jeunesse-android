@@ -4,7 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <!-- Partie commune aux fragments -->
-    <dimen name="basicfragment_toprectangle_size">200dp</dimen>
-    <dimen name="basicfragment_title_size">35dp</dimen>
+    <dimen name="basic_fragment_toprectangle_size">200dp</dimen>
+    <dimen name="basic_fragment_title_size">35dp</dimen>
 
 </resources>
