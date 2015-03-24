@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.PowerManager;
 
 import com.cafejeunesse.android.fragment.Refreshable;
+import com.cafejeunesse.android.navigationdrawer.R;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -39,8 +40,7 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
             // expect HTTP 200 OK, so we don't mistakenly save error report
             // instead of the file
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                // TODO export dans un String.xml
-                return "Server returned HTTP " + connection.getResponseCode()
+                return context.getString(R.string.server_returned_http) + connection.getResponseCode()
                         + " " + connection.getResponseMessage();
             }
 

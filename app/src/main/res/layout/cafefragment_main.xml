@@ -5,15 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- TODO String in string.xml -->
-
     <ImageView
         android:id="@+id/cafe_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/basic_fragment_toprectangle_size"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/cafe_banner_grey"/>
+        android:src="@drawable/cafe_banner_grey"
+        android:contentDescription="@string/your_coffee" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_below="@id/cafe_image"
-        android:src="@drawable/rectangle_cafefragment"/>
+        android:src="@drawable/rectangle_cafefragment"
+        android:contentDescription="@string/separator" />
 
     <TextView
         android:id="@+id/cafe_subtitle"

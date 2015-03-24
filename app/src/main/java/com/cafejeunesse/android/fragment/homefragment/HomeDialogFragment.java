@@ -18,7 +18,6 @@ import com.cafejeunesse.android.structure.News;
  */
 public class HomeDialogFragment extends DialogFragment {
 
-    private TextView title, content;
     private final static float dialogSize = 0.9f;
 
     public HomeDialogFragment(){
@@ -30,12 +29,12 @@ public class HomeDialogFragment extends DialogFragment {
 
         View view = inflater.inflate(R.layout.homefragment_list_item_details, container, false);
 
-        this.title = (TextView) view.findViewById(R.id.home_details_title);
-        this.content = (TextView) view.findViewById(R.id.home_details_description);
+        TextView title = (TextView) view.findViewById(R.id.home_details_title);
+        TextView content = (TextView) view.findViewById(R.id.home_details_description);
 
         Bundle b = getArguments();
-        this.title.setText(b.getString(News.NEWS_TITLE));
-        this.content.setText(b.getString(News.NEWS_DESCR));
+        title.setText(b.getString(News.NEWS_TITLE));
+        content.setText(b.getString(News.NEWS_DESCR));
 
         return view;
     }
