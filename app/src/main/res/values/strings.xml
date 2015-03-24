@@ -2,28 +2,28 @@
 
 <resources>
 
-    <string name="app_name">Cafe Jeunesse</string>
+    <string name="app_name">Café Jeunesse</string>
 
     <string-array name="menu_titles_array">
         <item>Accueil</item>
         <item>Le Café Jeunesse</item>
-        <item>Partenaires</item>
+        <item>Répertoire</item>
         <item>Carte</item>
         <item>Contacts</item>
         <item>Paramètres</item>
     </string-array>
 
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="drawer_close">Close navigation drawer</string>
+    <string name="drawer_open">Ouvrir la navigation</string>
+    <string name="drawer_close">Fermer la navigation</string>
     <string name="action_websearch">Web search</string>
-    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="app_not_available">Désolé, aucun navigateur disponible</string>
 
     <!-- Fragment Home -->
     <string name="homefragment_title">Café Jeunesse</string>
 
     <!-- Fragment Service -->
-    <string name="servicefragment_title">Partenaires</string>
-    <string name="all_service">Toutes les  catégories</string>
+    <string name="servicefragment_title">Répertoire</string>
+    <string name="all_service">Toutes les catégories</string>
     <string name="custom_service">Catégories personnalisée</string>
 
     <!-- Fragment Cafe -->
