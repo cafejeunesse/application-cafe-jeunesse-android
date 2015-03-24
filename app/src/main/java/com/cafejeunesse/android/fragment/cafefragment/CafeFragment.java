@@ -18,6 +18,9 @@ public class CafeFragment extends BasicFragment {
         // Chargement générique des fragments de l'application
         initFragment(inflater, container, R.layout.cafefragment_main);
 
+        // TODO ajouter un onClikListener sur le bouton afin d'afficher les regles de vie
+        // On peut réutiliser le format de fragment "ServiceDetailsFragment"
+
         return mView;
     }
 }

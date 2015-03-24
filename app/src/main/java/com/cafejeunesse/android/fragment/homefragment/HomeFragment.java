@@ -182,6 +182,10 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
 
             try {
 
+                // TODO Charger les news depuis la BD (après modif de la structure)
+                // et modifier le parser pour qu'il ajoute les calendriers à la BD
+                // (à chaque téléchargement : vide la table concerné et la re-remplie)
+
                 switch(tabIndex){
                     case CALENDAR_TAB_INDEX:
                         mNews = new NewsParser().parseFileForNews(HomeFragment.CALENDAR_FILEPATH);

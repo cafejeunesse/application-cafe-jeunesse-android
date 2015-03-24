@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- TODO Affichage incorrect des informations du marker : wrap_content ?-->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="20dp"

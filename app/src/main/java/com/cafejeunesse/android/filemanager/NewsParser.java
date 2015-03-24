@@ -20,6 +20,9 @@ import java.util.List;
  */
 public class NewsParser {
 
+    // TODO parser correctement les balises <entry>
+    // ou carrement se tourner vers un format iCal ?
+
     // We don't use namespaces
     private static final String ns = null;
 

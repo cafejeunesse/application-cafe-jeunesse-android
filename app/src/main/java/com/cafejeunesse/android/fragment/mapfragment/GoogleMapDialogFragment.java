@@ -29,6 +29,9 @@ public class GoogleMapDialogFragment extends DialogFragment {
 
         View view = inflater.inflate(R.layout.googlemapfragment_details, container, false);
 
+        // TODO Afficher les informations pertinentes
+        // Ajouter au moins la description du service
+
         this.title = (TextView) view.findViewById(R.id.googlemap_title);
 
         Bundle b = getArguments();

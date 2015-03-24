@@ -10,6 +10,10 @@ import android.widget.Toast;
  */
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
+    // TODO rendre la classe générique pour gérer plusieurs tables
+
+    // TODO ajouter deux tables : une pour chaque calendrier récupéré sur Google Calendar
+
     // todo: verify this is the good way to reference local database
     public static String DB_PATH = "/data/data/android.cafejeunesse.com.cafejeunesse/databases/";
 

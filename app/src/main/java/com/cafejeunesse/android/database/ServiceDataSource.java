@@ -16,6 +16,9 @@ import java.util.List;
  */
 public class ServiceDataSource {
 
+    // TODO généraliser ce code pour gérer plusieurs tables dans la BD
+    // (je m'en occupe je pense)
+
     private Context mContext;
     private int mCurrentVersion;
 
@@ -96,6 +99,10 @@ public class ServiceDataSource {
     private Service cursorToService(Cursor cursor) {
 
         if(cursor != null){
+
+            // TODO Utiliser des chaines dans String.xml plutôt que de récupérer les tags
+            // dans Service
+
             Service service = new Service();
             service.setId(cursor.getLong(0));
             service.setServiceName(cursor.getString(1));

@@ -73,6 +73,8 @@ public class GoogleMapFragment extends BasicFragment
         if (mMap == null) {
             // Au besoin (pas déjà fait), on recharge la map
             mMap = mMapFragment.getMap();
+            // TODO chargement de la map dans une tâche asynchrone afin de diminuer
+            // l'impression de lag (la vue se charge d'abord, puis la map)
             setUpMap();
         }
         if(mDataSource != null)

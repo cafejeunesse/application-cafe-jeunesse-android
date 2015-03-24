@@ -199,4 +199,10 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
             getFragmentManager().popBackStack();
         }
     }
+
+    // Autres trucs à faire
+
+    // TODO Créer un fragment pour les Paramètres
+    // TODO Créer un fragment pour le "A propos"
+    // TODO Gestion du cycle de vie des fragments (je m'en occupe)
 }
