@@ -37,21 +37,30 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
     private ViewPager mViewPager;
     private SlidingTabLayout mSlidingTabLayout;
 
+//    // activités
+//    private final static String CALENDAR_URL =
+//        "https://www.google.com/calendar/ical/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic.ics";
+//
+//    // horaire
+//    private final static String SCHEDULE_URL =
+//        "https://www.google.com/calendar/ical/cafejeunessedechicoutimi%40gmail.com/public/basic.ics";
+
     private final static String CALENDAR_URL =
-            "https://www.google.com/calendar/feeds/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic";
+        "https://www.google.com/calendar/feeds/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic";
 
     private final static String SCHEDULE_URL =
-            "https://www.google.com/calendar/feeds/cafejeunessedechicoutimi%40gmail.com/public/basic";
+        "https://www.google.com/calendar/feeds/cafejeunessedechicoutimi%40gmail.com/public/basic";
 
-    private final static String CALENDAR_FILEPATH = Environment.getExternalStorageDirectory().getPath()+"/calendar.xml";
 
-    private final static String SCHEDULE_FILEPATH = Environment.getExternalStorageDirectory().getPath()+"/horaires.xml";
+    private final static String CALENDAR_FILEPATH = Environment.getExternalStorageDirectory().getPath() + "/calendar.ics";
+
+    private final static String SCHEDULE_FILEPATH = Environment.getExternalStorageDirectory().getPath() + "/schedule.ics";
 
     private final static int CALENDAR_TAB_INDEX = 0;
     private final static String CALENDAR_TAB_NAME = "Actualités";
 
     private final static int SCHEDULE_TAB_INDEX = 1;
-    private final static String SCHEDULE_TAB_NAME = "Horaires";
+    private final static String SCHEDULE_TAB_NAME = "Horaire";
 
     public final static long TIME_BETWEEN_DOWNLOADS = 86400000;
 
@@ -74,38 +83,31 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
         refresh();
     }
 
-    private void testAndDownload(String filepath, String url){
+    private void testAndDownload(String filepath, String url) {
 
         // Téléchargement (si besoin) des calendriers
         File f = new File(filepath);
 
-        boolean download = false;
-        // Si le fichier n'est pas présent
-        if(!f.exists() || !f.isFile()) download = true;
-            // Si le fichier est trop vieux
-        else if((new Date().getTime() - f.lastModified())>HomeFragment.TIME_BETWEEN_DOWNLOADS) download = true;
-
-        if(download)
-            startDownload(url,filepath);
+        // Si le fichier n'est pas présent ou qu'il est trop vieux
+        if (!f.exists() || !f.isFile() || (new Date().getTime() - f.lastModified()) > HomeFragment.TIME_BETWEEN_DOWNLOADS)
+            startDownload(url, filepath);
     }
 
-    private void startDownload(String url, String fileName){
+    private void startDownload(String url, String fileName) {
         // execute this when the downloader must be fired
         final DownloadTask downloadTask = new DownloadTask(mContext, this);
-        downloadTask.execute(url,fileName);
+        downloadTask.execute(url, fileName);
     }
 
     private BasicFragment me() {
         return this;
     }
 
-    public void refresh(){
-
+    public void refresh() {
         // en définissant un nouvel Adapter, on force le ViewPager à recharger les onglets
         mViewPager.setAdapter(new SamplePagerAdapter());
         mSlidingTabLayout = (SlidingTabLayout) mView.findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setViewPager(mViewPager);
-
     }
 
     @Override
@@ -114,13 +116,13 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
         News n = (News) parent.getAdapter().getItem(position);
 
         Bundle b = new Bundle();
-        b.putString(News.NEWS_TITLE,n.getTitle());
-        b.putString(News.NEWS_DESCR,n.getArticle());
+        b.putString(News.NEWS_TITLE, n.getTitle());
+        b.putString(News.NEWS_DESCR, n.getArticle());
 
         FragmentManager fm = me().getFragmentManager();
         HomeDialogFragment mDialogFragment = new HomeDialogFragment();
         mDialogFragment.setArguments(b);
-        mDialogFragment.show(fm,"home_dialog_fragment");
+        mDialogFragment.show(fm, "home_dialog_fragment");
     }
 
     class SamplePagerAdapter extends PagerAdapter {
@@ -140,7 +142,7 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
 
         @Override
         public CharSequence getPageTitle(int position) {
-            switch(position){
+            switch (position) {
                 case CALENDAR_TAB_INDEX:
                     return CALENDAR_TAB_NAME;
                 case SCHEDULE_TAB_INDEX:
@@ -154,9 +156,9 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
 
             // Inflate a new layout from our resources
             View view = getActivity().getLayoutInflater().inflate(R.layout.homefragment_pager,
-                    container, false);
+                container, false);
 
-            mListView = (ListView)view.findViewById(R.id.listview_news);
+            mListView = (ListView) view.findViewById(R.id.listview_news);
             mListViewAdapter = new NewsArrayAdapter(mContext, new ArrayList<News>());
             mListView.setAdapter(mListViewAdapter);
             mListView.setOnItemClickListener(HomeFragment.this);
@@ -175,7 +177,7 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
             container.removeView((View) object);
         }
 
-        private void reloadNews(int tabIndex){
+        private void reloadNews(int tabIndex) {
 
             List<News> mNews = null;
             mListViewAdapter.clear();
@@ -186,7 +188,7 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
                 // et modifier le parser pour qu'il ajoute les calendriers à la BD
                 // (à chaque téléchargement : vide la table concerné et la re-remplie)
 
-                switch(tabIndex){
+                switch (tabIndex) {
                     case CALENDAR_TAB_INDEX:
                         mNews = new NewsParser().parseFileForNews(HomeFragment.CALENDAR_FILEPATH);
                         break;
@@ -197,16 +199,16 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
                 }
 
                 if (mNews != null) {
-                    for(News n: mNews)
+                    for (News n : mNews)
                         mListViewAdapter.add(n);
                 }
 
-            } catch (FileNotFoundException ignored){
+            } catch (FileNotFoundException ignored) {
 
-            } catch (XmlPullParserException e){
-                Toast.makeText(mContext,mContext.getString(R.string.error_while_reading_xml),Toast.LENGTH_LONG).show();
-            } catch (IOException e){
-                Toast.makeText(mContext,mContext.getString(R.string.error_on_xml_file_open),Toast.LENGTH_LONG).show();
+            } catch (XmlPullParserException e) {
+                Toast.makeText(mContext, mContext.getString(R.string.error_while_reading_xml), Toast.LENGTH_LONG).show();
+            } catch (IOException e) {
+                Toast.makeText(mContext, mContext.getString(R.string.error_on_xml_file_open), Toast.LENGTH_LONG).show();
             }
         }
 

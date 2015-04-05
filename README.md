@@ -5,10 +5,10 @@ Dépôt pour application Android du Café Jeunesse
 
 ### Google Maps API
 
-Créer le fichier `app/src/main/res/values/google_api_key.xml` insérer:
+Créer le fichier `app/src/main/res/values/google_api_key.xml` et insérer:
 
     <resources>
-    <string name="google_map_api_key">INSERT_YOUR_KEY_HERE</string>
+        <string name="google_api_key">INSERT_YOUR_KEY_HERE</string>
     </resources>
 
 Remplacer `INSERT_YOUR_KEY_HERE` par votre clé. ;)

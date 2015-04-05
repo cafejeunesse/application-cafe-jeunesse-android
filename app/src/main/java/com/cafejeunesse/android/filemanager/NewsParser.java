@@ -8,7 +8,6 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -23,16 +22,24 @@ public class NewsParser {
     // TODO parser correctement les balises <entry>
     // ou carrement se tourner vers un format iCal ?
 
+    // Google Calendar Api v3 aurait été cool, mais ça requiert oauth2 et une authorisation depuis
+    // le device même si nos calendars sont publiques. (triste)
+    // @see: https://developers.google.com/oauthplayground/
+
+    // https://www.googleapis.com/calendar/v3/users/me/calendarList
+    // https://www.googleapis.com/calendar/v3/calendars/{calendar_id}
+    // https://www.googleapis.com/calendar/v3/calendars/{calendar_id}/events
+
     // We don't use namespaces
     private static final String ns = null;
 
     public List<News> parseFileForNews(String filepath)
-            throws FileNotFoundException, XmlPullParserException, IOException{
+        throws XmlPullParserException, IOException {
 
         return parse(new FileInputStream(filepath));
     }
 
-    private List parse(InputStream in) throws XmlPullParserException, IOException {
+    private List<News> parse(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -44,8 +51,8 @@ public class NewsParser {
         }
     }
 
-    private List readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
-        List entries = new ArrayList();
+    private List<News> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
+        List<News> entries = new ArrayList<>();
 
         parser.require(XmlPullParser.START_TAG, ns, "feed");
         while (parser.next() != XmlPullParser.END_TAG) {
@@ -75,12 +82,16 @@ public class NewsParser {
                 continue;
             }
             String name = parser.getName();
-            if (name.equals("title")) {
-                title = readSimpleString(parser,"title");
-            } else if (name.equals("summary")) {
-                article = readSimpleString(parser,"summary");
-            } else {
-                skip(parser);
+            switch (name) {
+                case "title":
+                    title = readSimpleString(parser, "title");
+                    break;
+                case "summary":
+                    article = readSimpleString(parser, "summary");
+                    break;
+                default:
+                    skip(parser);
+                    break;
             }
         }
         return new News(title, new Date(), article);
