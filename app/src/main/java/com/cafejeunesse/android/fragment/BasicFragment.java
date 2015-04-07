@@ -13,6 +13,8 @@ import com.cafejeunesse.android.structure.CustomTextView;
  */
 public abstract class BasicFragment extends Fragment {
 
+    public final static int FRAGMENT_NUMBER = 6;
+
     public final static int HOMEFRAGMENT_ID = 0;
     public final static int CAFEFRAGMENT_ID = 1;
     public final static int SERVICEFRAGMENT_ID = 2;

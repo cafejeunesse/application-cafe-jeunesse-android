@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.cafejeunesse.android.fragment.BasicFragment;
 import com.cafejeunesse.android.fragment.cafefragment.CafeFragment;
 import com.cafejeunesse.android.fragment.homefragment.HomeFragment;
 import com.cafejeunesse.android.fragment.mapfragment.GoogleMapFragment;
@@ -32,6 +33,7 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
+    private Fragment[] mFragments;
     private String[] mMenuTitles;
 
     @Override
@@ -46,9 +48,16 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
 
         setContentView(R.layout.activity_navigation_drawer);
 
+        mFragments = new Fragment[BasicFragment.FRAGMENT_NUMBER];
+        mFragments[BasicFragment.HOMEFRAGMENT_ID] = new HomeFragment();
+        mFragments[BasicFragment.CAFEFRAGMENT_ID] = new CafeFragment();
+        mFragments[BasicFragment.SERVICEFRAGMENT_ID] = new ServiceFragment();
+        mFragments[BasicFragment.GOOGLEMAPFRAGMENT_ID] = new GoogleMapFragment();
+
         mMenuTitles = getResources().getStringArray(R.array.menu_titles_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
 
         View mDrawerImage = getLayoutInflater().inflate(R.layout.activity_drawer_image,null);
         mDrawerList.addHeaderView(mDrawerImage);
@@ -143,21 +152,27 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
     }
 
     private void selectItem(int position) {
-        // update the main content by replacing fragments
-        Fragment fragment;
 
-        switch(position){
-            case 2:
-                fragment = new CafeFragment();
-                break;
-            case 3:
-                fragment = new ServiceFragment();
-                break;
-            case 4:
-                fragment = new GoogleMapFragment();
-                break;
-            default:
-                fragment = new HomeFragment();
+        if(position == 0)
+            return;
+
+        Fragment fragment = mFragments[position-1];
+
+        if(fragment == null){
+            switch(position){
+                case BasicFragment.HOMEFRAGMENT_ID+1:
+                    mFragments[position] = new HomeFragment();
+                    break;
+                case BasicFragment.CAFEFRAGMENT_ID+1:
+                    mFragments[position] = new CafeFragment();
+                    break;
+                case BasicFragment.SERVICEFRAGMENT_ID+1:
+                    mFragments[position] = new ServiceFragment();
+                    break;
+                case BasicFragment.GOOGLEMAPFRAGMENT_ID+1:
+                    mFragments[position] = new GoogleMapFragment();
+            }
+            fragment = mFragments[position];
         }
 
         FragmentManager fragmentManager = getFragmentManager();
