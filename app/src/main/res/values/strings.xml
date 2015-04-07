@@ -67,5 +67,8 @@
     <string name="server_returned_http">Le serveur a retourné HTTP</string>
     <string name="your_coffee">Votre café</string>
     <string name="separator">Séparateur</string>
+    <string name="error_on_ics_parsing">Erreur lors de la lecture du calendrier</string>
+    <string name="error_while_opening_ics">Une erreur s\'est produite lors de l\'ouverture du calendrier</string>
+    <string name="error_on_creating_dir">Impossible de créer le dossier de travail de l\'application</string>
 
 </resources>

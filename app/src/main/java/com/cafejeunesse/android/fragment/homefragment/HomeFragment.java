@@ -23,11 +23,17 @@ import com.cafejeunesse.android.structure.News;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import net.fortuna.ical4j.data.CalendarBuilder;
+import net.fortuna.ical4j.data.ParserException;
+import net.fortuna.ical4j.model.*;
+import net.fortuna.ical4j.model.component.VEvent;
 
 /**
  * Created by David Levayer on 17/02/15.
@@ -37,24 +43,23 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
     private ViewPager mViewPager;
     private SlidingTabLayout mSlidingTabLayout;
 
-//    // activités
-//    private final static String CALENDAR_URL =
-//        "https://www.google.com/calendar/ical/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic.ics";
-//
-//    // horaire
-//    private final static String SCHEDULE_URL =
-//        "https://www.google.com/calendar/ical/cafejeunessedechicoutimi%40gmail.com/public/basic.ics";
-
+    // activités
     private final static String CALENDAR_URL =
-        "https://www.google.com/calendar/feeds/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic";
+        "https://www.google.com/calendar/ical/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic.ics";
 
+    // horaire
     private final static String SCHEDULE_URL =
-        "https://www.google.com/calendar/feeds/cafejeunessedechicoutimi%40gmail.com/public/basic";
+        "https://www.google.com/calendar/ical/cafejeunessedechicoutimi%40gmail.com/public/basic.ics";
 
+//    private final static String CALENDAR_URL =
+//        "https://www.google.com/calendar/feeds/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic";
+//
+//    private final static String SCHEDULE_URL =
+//        "https://www.google.com/calendar/feeds/cafejeunessedechicoutimi%40gmail.com/public/basic";
 
-    private final static String CALENDAR_FILEPATH = Environment.getExternalStorageDirectory().getPath() + "/calendar.ics";
-
-    private final static String SCHEDULE_FILEPATH = Environment.getExternalStorageDirectory().getPath() + "/schedule.ics";
+    private final static String APP_FOLDER_PATH = Environment.getExternalStorageDirectory().getPath() + "/cafe-jeunesse";
+    private final static String CALENDAR_FILEPATH = Environment.getExternalStorageDirectory().getPath() + "/cafe-jeunesse/calendar.ics";
+    private final static String SCHEDULE_FILEPATH = Environment.getExternalStorageDirectory().getPath() + "/cafe-jeunesse/schedule.ics";
 
     private final static int CALENDAR_TAB_INDEX = 0;
     private final static String CALENDAR_TAB_NAME = "Actualités";
@@ -77,6 +82,13 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
 
         mViewPager = (ViewPager) mView.findViewById(R.id.viewpager);
 
+        File f = new File(HomeFragment.APP_FOLDER_PATH);
+        if (!f.exists()) {
+            boolean mkdir = f.mkdir();
+            if (!mkdir) {
+                Toast.makeText(mContext, mContext.getString(R.string.error_on_creating_dir), Toast.LENGTH_LONG).show();
+            }
+        }
         testAndDownload(HomeFragment.CALENDAR_FILEPATH, HomeFragment.CALENDAR_URL);
         testAndDownload(HomeFragment.SCHEDULE_FILEPATH, HomeFragment.SCHEDULE_URL);
 
@@ -190,7 +202,8 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
 
                 switch (tabIndex) {
                     case CALENDAR_TAB_INDEX:
-                        mNews = new NewsParser().parseFileForNews(HomeFragment.CALENDAR_FILEPATH);
+                        //mNews = new NewsParser().parseFileForNews(HomeFragment.CALENDAR_FILEPATH);
+                        mNews = extractNews(HomeFragment.CALENDAR_FILEPATH);
                         break;
                     case SCHEDULE_TAB_INDEX:
                         mNews = new NewsParser().parseFileForNews(HomeFragment.SCHEDULE_FILEPATH);
@@ -204,12 +217,29 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
                 }
 
             } catch (FileNotFoundException ignored) {
-
+                Toast.makeText(mContext, mContext.getString(R.string.error_while_opening_ics), Toast.LENGTH_LONG).show();
             } catch (XmlPullParserException e) {
                 Toast.makeText(mContext, mContext.getString(R.string.error_while_reading_xml), Toast.LENGTH_LONG).show();
             } catch (IOException e) {
                 Toast.makeText(mContext, mContext.getString(R.string.error_on_xml_file_open), Toast.LENGTH_LONG).show();
+            } catch (ParserException e) {
+                Toast.makeText(mContext, mContext.getString(R.string.error_on_ics_parsing), Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                Toast.makeText(mContext, e.getMessage(), Toast.LENGTH_LONG).show();
             }
+        }
+
+        private List<News> extractNews(String path) throws IOException, ParserException {
+            FileInputStream fin = new FileInputStream(path);
+            CalendarBuilder builder = new CalendarBuilder();
+            net.fortuna.ical4j.model.Calendar calendar = builder.build(fin);
+
+            VEvent[] events = (VEvent[]) calendar.getComponents(Component.VEVENT).toArray();
+            List<News> news = new ArrayList<>();
+            for (VEvent event : events) {
+                news.add(new News(event.getName(), new Date(event.getStartDate().toString()), event.getDescription().toString()));
+            }
+            return news;
         }
 
     }
