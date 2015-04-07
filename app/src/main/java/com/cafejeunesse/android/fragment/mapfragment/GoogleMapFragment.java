@@ -77,6 +77,16 @@ public class GoogleMapFragment extends BasicFragment
             // l'impression de lag (la vue se charge d'abord, puis la map)
             setUpMap();
         }
+
+        // mise à jour de la position
+        if(mLocation !=null) {
+            CameraUpdate center= CameraUpdateFactory.newLatLngZoom(
+                    new LatLng(mLocation.getLatitude(), mLocation.getLongitude()),
+                    15);
+
+            mMap.moveCamera(center);
+        }
+
         if(mDataSource != null)
             mDataSource.open();
     }
@@ -140,15 +150,6 @@ public class GoogleMapFragment extends BasicFragment
             public void onProviderEnabled(String provider) { }
             public void onStatusChanged(String provider, int status, Bundle extras) { }
         };
-
-        if(mLocation !=null)
-        {
-            CameraUpdate center= CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(mLocation.getLatitude(), mLocation.getLongitude()),
-                    15);
-
-            mMap.moveCamera(center);
-        }
 
         loadMarkers();
 
