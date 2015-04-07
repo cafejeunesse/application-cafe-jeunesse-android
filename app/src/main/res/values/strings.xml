@@ -31,7 +31,10 @@
     <string name="cafefragment_subtitle">Un lieu d\'échange et de solidarité</string>
     <string name="cafefragment_text">Depuis 1987, la mission du Café-Jeunesse de Chicoutimi est d\'accueillir et de rejoindre les jeunes adultes âgés entre 18 et 30 ans; les accompagner dans leurs démarches de prise en charge individuelle et/ou collective.
         \n\nNous tentons aussi de faire naître, développer et soutenir des groupes selon des problématiques spécifiques pour répondre aux besoins vécus pas les jeunes adultes. </string>
-    <string name="cafefragment_button">Voir les règles de vie</string>
+    <string name="cafefragment_button">Voir le code de vie</string>
+    <string name="cafefragment_liferules_title">Code de vie</string>
+    <string name="cafefragment_liferules_subtitle">Le code de vie représente les valeurs du Café-Jeunesse.</string>
+    <string name="cafefragment_liferules_text">Texte</string>
     <string name="error_while_reading_xml">Erreur lors de la lecture du fichier XML</string>
     <string name="error_on_xml_file_open">Erreur lors de l\'ouverture du fichier XML</string>
     <string name="line">Ligne</string>

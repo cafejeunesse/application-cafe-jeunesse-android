@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/cafe_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_fragment_toprectangle_size"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cafe_banner_grey"
+        android:contentDescription="@string/your_coffee" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cafefragment_liferules_title"
+        android:textColor="@color/fragment_title"
+        android:textSize="@dimen/basic_fragment_title_size"
+        android:layout_below="@id/cafe_image"
+        android:layout_marginTop="-50dp"
+        android:layout_marginLeft="20dp"/>
+
+    <ImageView
+        android:id="@+id/cafe_line"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/cafe_image"
+        android:src="@drawable/rectangle_cafefragment"
+        android:contentDescription="@string/separator" />
+
+    <TextView
+        android:id="@+id/cafe_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cafefragment_liferules_subtitle"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@color/cafe_fragment_accent_color"
+        android:layout_below="@id/cafe_line"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cafe_subtitle"
+        android:layout_above="@+id/cafe_button_rules">
+
+        <TextView
+            android:id="@+id/cafe_maintext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cafefragment_liferules_text"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/text_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+
+    </ScrollView>
+
+</RelativeLayout>
