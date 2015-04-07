@@ -219,5 +219,4 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
 
     // TODO Créer un fragment pour les Paramètres
     // TODO Créer un fragment pour le "A propos"
-    // TODO Gestion du cycle de vie des fragments (je m'en occupe)
 }
