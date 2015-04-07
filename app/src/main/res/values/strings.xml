@@ -34,7 +34,26 @@
     <string name="cafefragment_button">Voir le code de vie</string>
     <string name="cafefragment_liferules_title">Code de vie</string>
     <string name="cafefragment_liferules_subtitle">Le code de vie représente les valeurs du Café-Jeunesse.</string>
-    <string name="cafefragment_liferules_text">Texte</string>
+
+    <string name="cafefragment_liferules_text">
+        ◉ JE CONSENS que le respect est à la base de tout. Chacun a le droit au respect de sa personne, de ses choix, de ses opinions, de ses goûts.\n\n
+        ◉ JE RESPECTERAI les heures d’ouverture de l’organisme à moins d’avis contraire d’un intervenant.\n\n
+        ◉ J’UTILISERAI un langage approprié et respectueux envers les autres personnes qui fréquentent l’organisme, ainsi que les intervenants, les stagiaires et les bénévoles. Aucun langage à caractères violent ne sera toléré.\n\n
+        ◉ JE M’ABSTIENDRAI de tenir un discours à connotation sexuelle (anecdotes personnelles) et avec des sous-entendus d’ordre sexuel, discriminatoires et sexistes.\n\n
+        ◉ JE RESPECTERAI la vie privée de chacun doit être préservé.\n\n
+        ◉ JE N’ENGAGERAI aucune relation de proximité envers les intervenants, les bénévoles et les stagiaires.\n\n
+        ◉ JE RESPECTERAI le matériel de l’organisme qui est mis à ma disposition. En cas de bris volontaire, j’en serai tenu responsable.\n\n
+        ◉ JE M’ABSTIENDRAI de me présenter au Café-Jeunesse en possession d’alcool, de drogues ou d’armes.\n\n
+        ◉ JE M’ABSTIENDRAI de me présenter au Café-Jeunesse en état d’ébriété et en consommation de drogues. Cependant, en situation d’urgence, je pourrai prendre contact par téléphone avec un intervenant afin d’obtenir une aide.\n\n
+        ◉ JE M’ABSTIENDRAI de consommer des boissons énergisantes au Café-Jeunesse de Chicoutimi.\n\n
+        ◉ J’ADOPTERAI des attitudes et des comportements respectueux envers les personnes présentes au Café-Jeunesse. Aucune forme de violence (verbale, psychologique ou physique) ne sera tolérée. Ainsi, aucun comportement ni attitude qui pourraient perturber le milieu de vie ne sera tolérés.\n\n
+        ◉ JE NE FERAI ENTRER aucun animal à l’intérieur du Café-Jeunesse.\n\n\n
+        Dans une situation où le code de vie ne serait pas respecté, les étapes suivantes seront mises en place :\n\n
+        1. Avertissement verbal\n
+        2. Avertissement écrit et rencontre avec une intervenante\n
+        3. Expulsion de l’organisme pour une durée significative selon l’évaluation de la situation et des gestes posés. À cette étape, tu devras rencontrer une intervenante pour pouvoir réintégrer l’organisme.
+    </string>
+
     <string name="error_while_reading_xml">Erreur lors de la lecture du fichier XML</string>
     <string name="error_on_xml_file_open">Erreur lors de l\'ouverture du fichier XML</string>
     <string name="line">Ligne</string>

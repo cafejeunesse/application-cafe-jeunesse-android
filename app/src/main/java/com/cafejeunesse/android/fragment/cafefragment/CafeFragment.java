@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cafejeunesse.android.fragment.BasicFragment;
-import com.cafejeunesse.android.fragment.servicefragment.ServiceDetailsFragment;
 import com.cafejeunesse.android.navigationdrawer.R;
 
 /**
@@ -22,8 +21,6 @@ public class CafeFragment extends BasicFragment {
         // Chargement générique des fragments de l'application
         initFragment(inflater, container, R.layout.cafefragment_main);
 
-        // TODO ajouter un onClikListener sur le bouton afin d'afficher les regles de vie
-        // On peut réutiliser le format de fragment "ServiceDetailsFragment"
         Button b = (Button) mView.findViewById(R.id.cafe_button_rules);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
