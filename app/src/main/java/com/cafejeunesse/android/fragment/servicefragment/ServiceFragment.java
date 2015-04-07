@@ -47,8 +47,11 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
             values = mDataSource.getAllServices();
         }
 
-        for(Service s: values)
-            mListViewAdapter.add(s);
+        for(Service s: values) {
+            String name = s.getServiceName();
+            if (name != null && !name.isEmpty())
+                mListViewAdapter.add(s);
+        }
 
         return mView;
     }
