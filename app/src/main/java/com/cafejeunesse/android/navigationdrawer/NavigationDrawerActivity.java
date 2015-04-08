@@ -166,7 +166,7 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
                     mFragments[position] = new CafeFragment();
                     break;
                 case BasicFragment.SERVICEFRAGMENT_ID+1:
-                    mFragments[position] = new ServiceFragment();
+                    mFragments[position] = ServiceFragment.newInstance(this);
                     break;
                 case BasicFragment.GOOGLEMAPFRAGMENT_ID+1:
                     mFragments[position] = new GoogleMapFragment();
