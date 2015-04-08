@@ -45,6 +45,14 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
             mDataSource.importDataFromAsset(ServiceDataSource.NEWDB_FILEPATH);
             mServices = mDataSource.getAllServices();
         }
+
+        mListViewAdapter = new ServiceArrayAdapter(context, new ArrayList<Service>());
+
+        for(Service s: mServices) {
+            String name = s.getServiceName();
+            if (name != null && !name.isEmpty())
+                mListViewAdapter.add(s);
+        }
     }
 
     @Override
@@ -55,15 +63,8 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
 
         // Chargement spécifique au fragment
         mListView = (ListView)mView.findViewById(R.id.listview_services);
-        mListViewAdapter = new ServiceArrayAdapter(mContext, new ArrayList<Service>());
         mListView.setAdapter(mListViewAdapter);
-        mListView.setOnItemClickListener(this);
-
-        for(Service s: mServices) {
-            String name = s.getServiceName();
-            if (name != null && !name.isEmpty())
-                mListViewAdapter.add(s);
-        }
+        mListView.setOnItemClickListener(ServiceFragment.this);
 
         return mView;
     }
