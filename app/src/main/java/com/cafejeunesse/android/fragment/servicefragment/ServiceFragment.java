@@ -1,7 +1,9 @@
 package com.cafejeunesse.android.fragment.servicefragment;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,27 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
 
     private ListView mListView;
     private ServiceArrayAdapter mListViewAdapter;
+
+    private List<Service> mServices;
+
+    public static Fragment newInstance(Context context){
+        ServiceFragment fragment = new ServiceFragment();
+        fragment.collectServices(context);
+        return fragment;
+    }
+
+    private void collectServices(Context context) {
+
+        ServiceDataSource mDataSource = new ServiceDataSource(context);
+        mDataSource.open();
+        mServices = mDataSource.getAllServices();
+
+        if(mServices.size() == 0) {
+            mDataSource.importDataFromAsset(ServiceDataSource.NEWDB_FILEPATH);
+            mServices = mDataSource.getAllServices();
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -36,18 +59,7 @@ public class ServiceFragment extends BasicFragment implements AdapterView.OnItem
         mListView.setAdapter(mListViewAdapter);
         mListView.setOnItemClickListener(this);
 
-        // TODO remove when SQLite implemented
-        // TODO refactor pour rendre l'import transparent ?
-        ServiceDataSource mDataSource = new ServiceDataSource(getActivity());
-        mDataSource.open();
-        List<Service> values = mDataSource.getAllServices();
-
-        if(values.size() == 0) {
-            mDataSource.importDataFromAsset(ServiceDataSource.NEWDB_FILEPATH);
-            values = mDataSource.getAllServices();
-        }
-
-        for(Service s: values) {
+        for(Service s: mServices) {
             String name = s.getServiceName();
             if (name != null && !name.isEmpty())
                 mListViewAdapter.add(s);

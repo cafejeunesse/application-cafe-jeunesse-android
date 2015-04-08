@@ -51,7 +51,7 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
         mFragments = new Fragment[BasicFragment.FRAGMENT_NUMBER];
         mFragments[BasicFragment.HOMEFRAGMENT_ID] = new HomeFragment();
         mFragments[BasicFragment.CAFEFRAGMENT_ID] = new CafeFragment();
-        mFragments[BasicFragment.SERVICEFRAGMENT_ID] = new ServiceFragment();
+        mFragments[BasicFragment.SERVICEFRAGMENT_ID] = ServiceFragment.newInstance(this);
         mFragments[BasicFragment.GOOGLEMAPFRAGMENT_ID] = new GoogleMapFragment();
 
         mMenuTitles = getResources().getStringArray(R.array.menu_titles_array);
@@ -103,7 +103,6 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
             selectItem(1);
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
