@@ -42,6 +42,7 @@ proguard/
 .idea/libraries
 .idea/gradle.xml
 *.iml
+.idea/dictionaries/
 
 # Log Files
 *.log
