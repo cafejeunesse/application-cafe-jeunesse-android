@@ -46,35 +46,172 @@
         android:src="@drawable/rectangle_fragment_cafe"
         android:contentDescription="@string/separator" />
 
-    <TextView
-        android:id="@+id/cafe_subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fragment_cafe_subtitle"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:textColor="@color/fragment_cafe_accent_color"
-        android:layout_below="@id/cafe_line"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cafe_subtitle"
+        android:layout_below="@id/cafe_line"
         android:layout_above="@+id/cafe_button_rules">
 
-        <TextView
-            android:id="@+id/cafe_maintext"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/fragment_cafe_text"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/text_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cafe_mission_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_mission_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_mission_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_mission_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+            <!-- Services -->
+
+            <TextView
+                android:id="@+id/cafe_services_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+            <!-- Volets -->
+
+            <TextView
+                android:id="@+id/cafe_services_volet_1_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_1_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_volet_1_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_1_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_volet_2_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_2_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_volet_2_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_2_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_volet_3_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_3_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_volet_3_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_3_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_volet_4_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_4_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_volet_4_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_4_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_volet_5_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_5_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_services_volet_5_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_services_volet_5_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+            <!-- Valeurs -->
+
+            <TextView
+                android:id="@+id/cafe_valeurs_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_valeurs_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_valeurs_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_valeurs_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+        </LinearLayout>
 
     </ScrollView>
+
+    <!-- todo: us -->
 
     <Button
         android:id="@+id/cafe_button_rules"

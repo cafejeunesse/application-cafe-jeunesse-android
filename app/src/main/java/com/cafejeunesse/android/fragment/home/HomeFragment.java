@@ -1,6 +1,7 @@
 package com.cafejeunesse.android.fragment.home;
 
 import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.view.PagerAdapter;
@@ -41,12 +42,10 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
     private SlidingTabLayout mSlidingTabLayout;
 
     // activités
-    private final static String CALENDAR_URL =
-        "https://www.google.com/calendar/ical/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic.ics";
+    private final static String CALENDAR_URL = "https://www.google.com/calendar/ical/fvp8k6fun93m32q8pe972sosps%40group.calendar.google.com/public/basic.ics";
 
     // horaire
-    private final static String SCHEDULE_URL =
-        "https://www.google.com/calendar/ical/cafejeunessedechicoutimi%40gmail.com/public/basic.ics";
+    private final static String SCHEDULE_URL = "https://www.google.com/calendar/ical/cafejeunessedechicoutimi%40gmail.com/public/basic.ics";
 
     private final static String APP_FOLDER_PATH = Environment.getExternalStorageDirectory().getPath() + "/cafe-jeunesse";
     private final static String CALENDAR_FILEPATH = APP_FOLDER_PATH + "/calendar.ics";
@@ -80,32 +79,17 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
                 Toast.makeText(mContext, mContext.getString(R.string.error_on_creating_dir), Toast.LENGTH_LONG).show();
             }
         }
-        testAndDownload(HomeFragment.CALENDAR_FILEPATH, HomeFragment.CALENDAR_URL);
-        testAndDownload(HomeFragment.SCHEDULE_FILEPATH, HomeFragment.SCHEDULE_URL);
+        DownloadTask.testAndDownload(HomeFragment.CALENDAR_FILEPATH, HomeFragment.CALENDAR_URL, HomeFragment.TIME_BETWEEN_DOWNLOADS, mContext, this);
+        DownloadTask.testAndDownload(HomeFragment.SCHEDULE_FILEPATH, HomeFragment.SCHEDULE_URL, HomeFragment.TIME_BETWEEN_DOWNLOADS, mContext, this);
 
-        refresh();
-    }
-
-    private void testAndDownload(String filepath, String url) {
-
-        // Téléchargement (si besoin) des calendriers
-        File f = new File(filepath);
-
-        // Si le fichier n'est pas présent ou qu'il est trop vieux
-        if (!f.exists() || !f.isFile() || (new Date().getTime() - f.lastModified()) > HomeFragment.TIME_BETWEEN_DOWNLOADS)
-            startDownload(url, filepath);
-    }
-
-    private void startDownload(String url, String fileName) {
-        // execute this when the downloader must be fired
-        final DownloadTask downloadTask = new DownloadTask(mContext, this);
-        downloadTask.execute(url, fileName);
+        refresh(); // todo: make sure this is needed. (I think this is called by testAndDownload since we need to pass a Refreshable (this))
     }
 
     private BasicFragment me() {
         return this;
     }
 
+    @Override
     public void refresh() {
         // en définissant un nouvel Adapter, on force le ViewPager à recharger les onglets
         mViewPager.setAdapter(new SamplePagerAdapter());

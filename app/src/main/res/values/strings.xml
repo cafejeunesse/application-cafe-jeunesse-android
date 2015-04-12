@@ -29,36 +29,65 @@
 
     <!-- Fragment Cafe -->
     <string name="fragment_cafe_title">Votre Café</string>
-    <string name="fragment_cafe_subtitle">Un lieu d\'échange et de solidarité</string>
-    <string name="fragment_cafe_text">Depuis 1987, la mission du Café-Jeunesse de Chicoutimi est d\'accueillir et de rejoindre les jeunes adultes âgés entre 18 et 30 ans; les accompagner dans leurs démarches de prise en charge individuelle et/ou collective.
-        \n\nNous tentons aussi de faire naître, développer et soutenir des groupes selon des problématiques spécifiques pour répondre aux besoins vécus pas les jeunes adultes. </string>
-    <string name="fragment_cafe_button">Voir le code de vie</string>
-    <string name="fragment_cafe_liferules_title">Code de vie</string>
-    <string name="fragment_cafe_liferules_subtitle">Le code de vie représente les valeurs du Café-Jeunesse.</string>
+    <string name="fragment_cafe_mission_title">Mission</string>
+    <string name="fragment_cafe_mission_text">Depuis sa création, le Café-Jeunesse s’emploie à accueillir et rejoindre les jeunes adultes âgés entre 18 et 30 ans ainsi que les familles dont un parent est âgé entre 18 et 30 ans; les accompagner dans leurs démarches de prise en charge individuelle et collective. Il travaille également à l’émergence, au développement et au soutien des groupes répondant aux besoins exprimés par les jeunes adultes, et ce, selon les problématiques spécifiques.</string>
 
-    <string name="fragment_cafe_liferules_text">
-        ◉ JE CONSENS que le respect est à la base de tout. Chacun a le droit au respect de sa personne, de ses choix, de ses opinions, de ses goûts.\n\n
-        ◉ JE RESPECTERAI les heures d’ouverture de l’organisme à moins d’avis contraire d’un intervenant.\n\n
-        ◉ J’UTILISERAI un langage approprié et respectueux envers les autres personnes qui fréquentent l’organisme, ainsi que les intervenants, les stagiaires et les bénévoles. Aucun langage à caractères violent ne sera toléré.\n\n
-        ◉ JE M’ABSTIENDRAI de tenir un discours à connotation sexuelle (anecdotes personnelles) et avec des sous-entendus d’ordre sexuel, discriminatoires et sexistes.\n\n
-        ◉ JE RESPECTERAI la vie privée de chacun doit être préservé.\n\n
-        ◉ JE N’ENGAGERAI aucune relation de proximité envers les intervenants, les bénévoles et les stagiaires.\n\n
-        ◉ JE RESPECTERAI le matériel de l’organisme qui est mis à ma disposition. En cas de bris volontaire, j’en serai tenu responsable.\n\n
-        ◉ JE M’ABSTIENDRAI de me présenter au Café-Jeunesse en possession d’alcool, de drogues ou d’armes.\n\n
-        ◉ JE M’ABSTIENDRAI de me présenter au Café-Jeunesse en état d’ébriété et en consommation de drogues. Cependant, en situation d’urgence, je pourrai prendre contact par téléphone avec un intervenant afin d’obtenir une aide.\n\n
-        ◉ JE M’ABSTIENDRAI de consommer des boissons énergisantes au Café-Jeunesse de Chicoutimi.\n\n
-        ◉ J’ADOPTERAI des attitudes et des comportements respectueux envers les personnes présentes au Café-Jeunesse. Aucune forme de violence (verbale, psychologique ou physique) ne sera tolérée. Ainsi, aucun comportement ni attitude qui pourraient perturber le milieu de vie ne sera tolérés.\n\n
-        ◉ JE NE FERAI ENTRER aucun animal à l’intérieur du Café-Jeunesse.\n\n\n
-        Dans une situation où le code de vie ne serait pas respecté, les étapes suivantes seront mises en place :\n\n
-        1. Avertissement verbal\n
-        2. Avertissement écrit et rencontre avec une intervenante\n
-        3. Expulsion de l’organisme pour une durée significative selon l’évaluation de la situation et des gestes posés. À cette étape, tu devras rencontrer une intervenante pour pouvoir réintégrer l’organisme.
+    <string name="fragment_cafe_services_title">Services</string>
+    <string name="fragment_cafe_services_text">Le Café-Jeunesse de Chicoutimi propose à la population de multiples services, répartis selon 5 grands volets;</string>
+    <string name="fragment_cafe_services_volet_1_title">Accueil au local</string>
+    <string name="fragment_cafe_services_volet_1_text">Les jeunes ont accès à une écoute, un support et à de l’intervention individuelle et collective. Aussi, les intervenantes y donnent de l’information et y font de la prévention sur différentes problématiques. Enfin, les jeunes sont accompagnés dans leurs démarches de prise en charge individuelle et collective.</string>
+    <string name="fragment_cafe_services_volet_2_title">Travail de milieu</string>
+    <string name="fragment_cafe_services_volet_2_text">L’organisme est présent dans les maisons de chambres de Chicoutimi et au Centre d’éducation des adultes de Laure-Conan afin d’y offrir un service de travail de milieu et de développer un lien de confiance avec ces jeunes. L’intervenante de milieu fait de la prévention, effectue des accompagnements, des références personnalisées, de l’aide et du soutien selon la problématique rencontrée.</string>
+    <string name="fragment_cafe_services_volet_3_title">Jeunes parents</string>
+    <string name="fragment_cafe_services_volet_3_text">Il permet de répondre aux besoins spécifiques des jeunes familles. Des dépannages matériels, un groupe de mères se réunissant une fois par mois et la journée Familles en fête s’adressent à celles-ci. L’organisme permet aussi aux jeunes mères de prendre une semaine de repos avec leurs enfants lors des Vacances-Soleil. De plus, un groupe de cuisine collective est réservé aux familles.</string>
+    <string name="fragment_cafe_services_volet_4_title">Sécurité alimentaire</string>
+    <string name="fragment_cafe_services_volet_4_text">Les jeunes ont accès au dépannage alimentaire (1647 dépannages en 2013–2014), à des collations santé hebdomadaires, à des bons d’alimentation, à des groupes de cuisine collective, à des ateliers de cuisine, ainsi qu’à un jardin communautaire à l’arrière du bâtiment. De surcroît, plusieurs repas communautaires sont donnés au Café tout au long de l’année.</string>
+    <string name="fragment_cafe_services_volet_5_title">Projet d\'habitation communautaire</string>
+    <string name="fragment_cafe_services_volet_5_text">Il offre aux jeunes de s’impliquer dans toutes les étapes de création et de planification d’un projet d’habitation communautaire. Ce projet permettrait aux jeunes de profiter de logements de qualité à prix abordables afin de pouvoir se consacrer à la réalisation d’un projet de vie. L’habitation compterait de 6 à 10 unités de logement et accueillerait les locaux du Café-Jeunesse.</string>
+
+    <string name="fragment_cafe_valeurs_title">Valeurs</string>
+    <string name="fragment_cafe_valeurs_text">Les valeurs portées par le Café-Jeunesse sont la solidarité, la justice sociale, la démocratie, l’autonomie et le respect.</string>
+
+    <string name="fragment_cafe_button">Voir le code de vie</string>
+
+    <string name="fragment_cafe_liferules_title">Code de vie</string>
+
+    <string name="fragment_cafe_liferules_content_title">Droits et responsabilités des personnes fréquentant l’organisme</string>
+    <string name="fragment_cafe_liferules_content_text">
+◉ JE CONSENS que le respect est à la base de tout. Chacun a le droit au respect de sa personne, de ses choix, de ses opinions, de ses goûts.\n\n
+◉ JE RESPECTERAI les heures d’ouverture de l’organisme à moins d’avis contraire d’un intervenant.\n\n
+◉ J’UTILISERAI un langage approprié et respectueux envers les autres personnes qui fréquentent l’organisme, ainsi que les intervenants, les stagiaires et les bénévoles. Aucun langage à caractères violent ne sera toléré.\n\n
+◉ JE M’ABSTIENDRAI de tenir un discours à connotation sexuelle (anecdotes personnelles) et avec des sous-entendus d’ordre sexuel, discriminatoires et sexistes.\n\n
+◉ JE RESPECTERAI la vie privée de chacun doit être préservé.\n\n
+◉ JE N’ENGAGERAI aucune relation de proximité envers les intervenants, les bénévoles et les stagiaires.\n\n
+◉ JE RESPECTERAI le matériel de l’organisme qui est mis à ma disposition. En cas de bris volontaire, j’en serai tenu responsable.\n\n
+◉ JE M’ABSTIENDRAI de me présenter au Café-Jeunesse en possession d’alcool, de drogues ou d’armes.\n\n
+◉ JE M’ABSTIENDRAI de me présenter au Café-Jeunesse en état d’ébriété et en consommation de drogues. Cependant, en situation d’urgence, je pourrai prendre contact par téléphone avec un intervenant afin d’obtenir une aide.\n\n
+◉ JE M’ABSTIENDRAI de consommer des boissons énergisantes au Café-Jeunesse de Chicoutimi.\n\n
+◉ J’ADOPTERAI des attitudes et des comportements respectueux envers les personnes présentes au Café-Jeunesse. Aucune forme de violence (verbale, psychologique ou physique) ne sera tolérée. Ainsi, aucun comportement ni attitude qui pourraient perturber le milieu de vie ne sera tolérés.\n\n
+◉ JE NE FERAI ENTRER aucun animal à l’intérieur du Café-Jeunesse.\n\n\n
+
+Dans une situation où le code de vie ne serait pas respecté, les étapes suivantes seront mises en place:\n
+1. Avertissement verbal\n
+2. Avertissement écrit et rencontre avec une intervenante\n
+3. Expulsion de l’organisme pour une durée significative selon l’évaluation de la situation et des gestes posés. À cette étape, tu devras rencontrer une intervenante pour pouvoir réintégrer l’organisme.\n
+    </string>
+    <string name="fragment_cafe_liferules_content_note">* À noter que pour des comportements ou des attitudes qui perturbent le milieu de vie, l’étape 3 pourrait être la conséquence appliquée et ce, de façon immédiate.</string>
+
+    <string name="fragment_cafe_liferules_consentement_title">Le consentement</string>
+    <string name="fragment_cafe_liferules_consentement_text">
+Je confirme avoir pris connaissance du code de vie et avoir reçu les explications concernant ces règles. Je suis conscient(e) que les intervenants, stagiaires et bénévoles appliqueront les mesures nécessaires si je déroge de ces règles.\n\n
+Informations pertinentes à connaître:\n
+Dans un souci de sécurité du personnel et des personnes qui fréquentent l\’organisme, l\’intervention policière pourrait être utilisée.\n\n
+
+◉ JE SUIS CONSCIENT que les mesures nécessaires seront appliquées s\’il y a non-respect des informations nommées précédemment. Si de telles situations se présentes, il est possible qu\’un rapport d\’événement soit rédigé dans l\’objectif de faciliter le travail des intervenants. Ces informations demeureront confidentielles.\n\n
+◉ JE SUIS CONSCIENT que l\’équipe de travail est soucieux des événements qui se déroulent dans le milieu de vie et ainsi la transmission d\’informations peut se faire entre intervenant.
     </string>
 
     <!-- Fragment About -->
     <string name="fragment_about_title">À propos</string>
     <string name="fragment_about_comite_title">
-        Comité de création de l’application mobile du Café-Jeunesse
+Comité de création de l\’application mobile du Café-Jeunesse
     </string>
     <string name="fragment_about_comite_text">
 Kevin Lévesque Paquette\n

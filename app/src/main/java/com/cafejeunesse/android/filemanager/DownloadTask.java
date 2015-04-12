@@ -7,12 +7,14 @@ import android.os.PowerManager;
 import com.cafejeunesse.android.fragment.Refreshable;
 import com.cafejeunesse.android.navigationdrawer.R;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Date;
 
 // usually, subclasses of AsyncTask are declared inside the activity class.
 // that way, you can easily modify the UI thread from here
@@ -91,8 +93,7 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
         // take CPU lock to prevent CPU from going off if the user
         // presses the power button during download
         PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-                getClass().getName());
+        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, getClass().getName());
         mWakeLock.acquire();
     }
 
@@ -101,5 +102,21 @@ public class DownloadTask extends AsyncTask<String, Integer, String> {
         mWakeLock.release();
         if (result == null)
             mRefresh.refresh();
+    }
+
+    public static void testAndDownload(String filepath, String url, Long timeBetweenDownloads, Context context, Refreshable refreshTarget) {
+
+        // Téléchargement (si besoin) des calendriers
+        File f = new File(filepath);
+
+        // Si le fichier n'est pas présent ou qu'il est trop vieux
+        if (!f.exists() || !f.isFile() || (new Date().getTime() - f.lastModified()) > timeBetweenDownloads)
+            startDownload(url, filepath, context, refreshTarget);
+    }
+
+    public static void startDownload(String url, String fileName, Context context, Refreshable refreshTarget) {
+        // execute this when the downloader must be fired
+        final DownloadTask downloadTask = new DownloadTask(context, refreshTarget);
+        downloadTask.execute(url, fileName);
     }
 }

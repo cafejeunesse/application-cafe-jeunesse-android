@@ -32,34 +32,68 @@
         android:src="@drawable/rectangle_fragment_cafe"
         android:contentDescription="@string/separator" />
 
-    <TextView
-        android:id="@+id/cafe_subtitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/fragment_cafe_liferules_subtitle"
-        android:textAppearance="?android:textAppearanceLarge"
-        android:textColor="@color/fragment_cafe_accent_color"
-        android:layout_below="@id/cafe_line"
-        android:layout_margin="10dp"
-        android:gravity="center_horizontal"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cafe_subtitle"
+        android:layout_below="@id/cafe_line"
         android:layout_above="@+id/cafe_button_rules">
 
-        <TextView
-            android:id="@+id/cafe_maintext"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/fragment_cafe_liferules_text"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/text_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_height="wrap_content">
 
+            <!-- Code de vie -->
+
+            <TextView
+                android:id="@+id/cafe_liferules_content_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_liferules_content_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_liferules_content_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_liferules_content_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+            <TextView
+                android:id="@+id/fragment_cafe_liferules_content_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_liferules_content_note"
+                android:textStyle="italic"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+            <!-- Consentement -->
+
+            <TextView
+                android:id="@+id/cafe_liferules_consentement_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_liferules_consentement_title"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/fragment_cafe_accent_color"
+                style="@style/title_margin" />
+
+            <TextView
+                android:id="@+id/cafe_liferules_consentement_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_cafe_liferules_consentement_text"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_content"
+                style="@style/text_margin" />
+
+        </LinearLayout>
     </ScrollView>
 
 </RelativeLayout>

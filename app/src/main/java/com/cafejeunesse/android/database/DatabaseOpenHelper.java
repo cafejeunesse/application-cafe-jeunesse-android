@@ -1,9 +1,13 @@
 package com.cafejeunesse.android.database;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
+
+import com.cafejeunesse.android.filemanager.DownloadTask;
+import com.cafejeunesse.android.fragment.home.HomeFragment;
 
 /**
  * Created by David Levayer on 21/03/15.
@@ -15,7 +19,12 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     // TODO ajouter deux tables : une pour chaque calendrier récupéré sur Google Calendar
 
     // todo: verify this is the good way to reference local database
+    @SuppressLint("SdCardPath")
     public static String DB_PATH = "/data/data/android.cafejeunesse.com.cafejeunesse/databases/";
+
+    // Todo: use a rest api to sync with it instead
+    // @see http://developer.android.com/training/sync-adapters/index.html
+    public static final String DB_URL = "https://github.com/cafejeunesse/application-cafe-jeunesse-android/raw/master/cafeDB.sqlite";
 
     public static final String TABLE_SERVICES = "Services";
 
@@ -40,21 +49,21 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     // Database creation sql statement
     private static final String DATABASE_CREATE = "create table "
-            + TABLE_SERVICES + "("
-            + COLUMN_ID + " integer primary key autoincrement, "
-            + COLUMN_NAME + " text, "
-            + COLUMN_PHONE + " text, "
-            + COLUMN_INFO + " text, "
-            + COLUMN_SERVICES + " text, "
-            + COLUMN_PRICE + " text, "
-            + COLUMN_WEBSITE + " text, "
-            + COLUMN_FACEBOOK + " text, "
-            + COLUMN_ADDRESS + " text, "
-            + COLUMN_CATEGORIES + " text, "
-            + COLUMN_KEYWORDS + " text, "
-            + COLUMN_LAT + " float, "
-            + COLUMN_LON + " float"
-            +");";
+        + TABLE_SERVICES + "("
+        + COLUMN_ID + " integer primary key autoincrement, "
+        + COLUMN_NAME + " text, "
+        + COLUMN_PHONE + " text, "
+        + COLUMN_INFO + " text, "
+        + COLUMN_SERVICES + " text, "
+        + COLUMN_PRICE + " text, "
+        + COLUMN_WEBSITE + " text, "
+        + COLUMN_FACEBOOK + " text, "
+        + COLUMN_ADDRESS + " text, "
+        + COLUMN_CATEGORIES + " text, "
+        + COLUMN_KEYWORDS + " text, "
+        + COLUMN_LAT + " float, "
+        + COLUMN_LON + " float"
+        + ");";
 
     public DatabaseOpenHelper(Context context) {
         super(context, DB_NAME, null, DATABASE_VERSION);
@@ -68,7 +77,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Toast.makeText(mContext,"Update from "+oldVersion+" to "+newVersion,Toast.LENGTH_LONG).show();
+        Toast.makeText(mContext, "Update from " + oldVersion + " to " + newVersion, Toast.LENGTH_LONG).show();
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SERVICES);
         onCreate(db);
     }
