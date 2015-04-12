@@ -41,6 +41,7 @@ proguard/
 .idea/workspace.xml
 .idea/libraries
 .idea/gradle.xml
+*.iml
 
 # Log Files
 *.log
