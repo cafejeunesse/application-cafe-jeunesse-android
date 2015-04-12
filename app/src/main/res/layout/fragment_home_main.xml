@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/home_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_fragment_toprectangle_size"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/banner_home_alt_grey"
+        android:contentDescription="@string/cafe_jeunesse" />
+
+    <View
+        android:id="@+id/banner_bottom_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_fragment_toprectangle_size"
+        android:background="@drawable/banner_bottom_gradient"
+        />
+
+    <View
+        android:id="@+id/banner_top_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_fragment_toprectangle_size"
+        android:background="@drawable/banner_top_gradient"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/homefragment_title"
+        android:textColor="@color/fragment_title"
+        android:textSize="@dimen/basic_fragment_title_size"
+        android:layout_below="@id/home_image"
+        android:layout_marginTop="-50dp"
+        android:layout_marginLeft="20dp"/>
+
+    <com.cafejeunesse.android.common.view.SlidingTabLayout
+        android:id="@+id/sliding_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/home_image"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/sliding_tabs"
+        android:background="@android:color/white"/>
+
+    <com.cafejeunesse.android.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_1"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_below="@id/home_image"
+        android:layout_marginTop="-28dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/drop_shadow"
+        android:stateListAnimator="@animator/fab_anim"
+        android:foreground="?android:windowContentOverlay">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/fab_icons"
+            android:layout_gravity="center"
+            android:duplicateParentState="true"
+            android:contentDescription="@string/fab_icon" />
+
+    </com.cafejeunesse.android.floatingactionbutton.FloatingActionButton>
+
+</RelativeLayout>

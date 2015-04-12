@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/service_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_fragment_toprectangle_size"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/banner_service_grey"
+        android:contentDescription="@string/saguenay" />
+
+    <View
+        android:id="@+id/banner_bottom_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_fragment_toprectangle_size"
+        android:background="@drawable/banner_bottom_gradient"
+        />
+
+    <View
+        android:id="@+id/banner_top_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/basic_fragment_toprectangle_size"
+        android:background="@drawable/banner_top_gradient"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/servicefragment_title"
+        android:textColor="@color/fragment_title"
+        android:textSize="@dimen/basic_fragment_title_size"
+        android:layout_below="@id/service_image"
+        android:layout_marginTop="-50dp"
+        android:layout_marginLeft="20dp"/>
+
+    <ImageView
+        android:id="@+id/service_line"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/service_image"
+        android:src="@drawable/rectangle_fragment_service"
+        android:contentDescription="@string/line" />
+
+    <Button
+        android:id="@+id/service_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/all_service"
+        android:layout_margin="10dp"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/main_color_negative"
+        android:background="@drawable/rectangle_fragment_service"/>
+
+    <ListView
+        android:id="@+id/listview_services"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/service_line"
+        android:layout_above="@id/service_button"/>
+
+</RelativeLayout>

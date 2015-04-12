@@ -32,7 +32,8 @@ android {
         exclude 'META-INF/NOTICE.txt'
 
         //!!! android buildToolsVersion 19.0.3 does not support exclude with wildcards yet :-(
-        exclude('org/apache/commons/codec/language/bm/*.txt')		//  124 files (uncompressed 215kb) with unused language specific rules
+        exclude('org/apache/commons/codec/language/bm/*.txt')
+        //  124 files (uncompressed 215kb) with unused language specific rules
     }
     productFlavors {
     }
@@ -40,9 +41,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.android.support:recyclerview-v7:21.0.2'
-    compile 'com.android.support:cardview-v7:21.0.2'
+    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile 'com.android.support:recyclerview-v7:22.0.0'
+    compile 'com.android.support:cardview-v7:22.0.0'
     compile 'com.google.android.gms:play-services:7.0.0'
     compile 'org.mnode.ical4j:ical4j:1.0.6'
     compile 'backport-util-concurrent:backport-util-concurrent:3.1'
@@ -50,4 +51,5 @@ dependencies {
     compile 'commons-lang:commons-lang:2.6'
     compile 'org.codehaus.groovy:groovy:2.4.3'
     compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:support-v4:22.0.0'
 }

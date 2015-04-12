@@ -6,4 +6,4 @@
     android:layout_height="wrap_content"
     android:adjustViewBounds="true"
     android:scaleType="centerCrop"
-    android:src="@drawable/actionbar_image"/>
+    android:src="@drawable/navigation_drawer_image"/>

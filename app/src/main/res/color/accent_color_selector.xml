@@ -4,42 +4,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:color="@color/home_fragment_accent_color"
+        android:color="@color/fragment_home_accent_color"
         android:state_activated="true"
         app:homeFragment="true"/>
 
     <item
-        android:color="@color/cafe_fragment_accent_color"
+        android:color="@color/fragment_cafe_accent_color"
         android:state_activated="true"
         app:cafeFragment="true"/>
 
     <item
-        android:color="@color/service_fragment_accent_color"
+        android:color="@color/fragment_service_accent_color"
         android:state_activated="true"
         app:serviceFragment="true"/>
 
     <item
-        android:color="@color/googlemap_fragment_accent_color"
+        android:color="@color/fragment_googlemap_accent_color"
         android:state_activated="true"
         app:googlemapFragment="true"/>
 
     <item
-        android:color="@color/home_fragment_accent_color"
+        android:color="@color/fragment_home_accent_color"
         android:state_pressed="true"
         app:homeFragment="true"/>
 
     <item
-        android:color="@color/cafe_fragment_accent_color"
+        android:color="@color/fragment_cafe_accent_color"
         android:state_pressed="true"
         app:cafeFragment="true"/>
 
     <item
-        android:color="@color/service_fragment_accent_color"
+        android:color="@color/fragment_service_accent_color"
         android:state_pressed="true"
         app:serviceFragment="true"/>
 
     <item
-        android:color="@color/googlemap_fragment_accent_color"
+        android:color="@color/fragment_googlemap_accent_color"
         android:state_pressed="true"
         app:googlemapFragment="true"/>
 

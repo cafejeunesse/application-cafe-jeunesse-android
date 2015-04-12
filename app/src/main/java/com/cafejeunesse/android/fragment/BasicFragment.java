@@ -13,12 +13,15 @@ import com.cafejeunesse.android.structure.CustomTextView;
  */
 public abstract class BasicFragment extends Fragment {
 
-    public final static int FRAGMENT_NUMBER = 6;
+    public final static int FRAGMENT_NUMBER = 7;
 
-    public final static int HOMEFRAGMENT_ID = 0;
-    public final static int CAFEFRAGMENT_ID = 1;
-    public final static int SERVICEFRAGMENT_ID = 2;
-    public final static int GOOGLEMAPFRAGMENT_ID = 3;
+    public static final int HOMEFRAGMENT_ID = 0;
+    public static final int CAFEFRAGMENT_ID = 1;
+    public static final int SERVICEFRAGMENT_ID = 2;
+    public static final int GOOGLEMAPFRAGMENT_ID = 3;
+    public static final int REGROUPEMENTS_ID = 4;
+    public static final int ABOUTFRAGMENT_ID = 5;
+    public static final int PARAMETERSFRAGMENT_ID = 6;
 
     protected View mView;
     protected Context mContext;

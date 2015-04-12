@@ -20,10 +20,13 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.cafejeunesse.android.fragment.BasicFragment;
-import com.cafejeunesse.android.fragment.cafefragment.CafeFragment;
-import com.cafejeunesse.android.fragment.homefragment.HomeFragment;
-import com.cafejeunesse.android.fragment.mapfragment.GoogleMapFragment;
-import com.cafejeunesse.android.fragment.servicefragment.ServiceFragment;
+import com.cafejeunesse.android.fragment.about.AboutFragment;
+import com.cafejeunesse.android.fragment.cafe.CafeFragment;
+import com.cafejeunesse.android.fragment.home.HomeFragment;
+import com.cafejeunesse.android.fragment.map.GoogleMapFragment;
+import com.cafejeunesse.android.fragment.parameters.ParametersFragment;
+import com.cafejeunesse.android.fragment.regroupements.RegroupementsFragment;
+import com.cafejeunesse.android.fragment.service.ServiceFragment;
 
 /**
  * Created by David Levayer on 17/02/15.
@@ -53,31 +56,35 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
         mFragments[BasicFragment.CAFEFRAGMENT_ID] = new CafeFragment();
         mFragments[BasicFragment.SERVICEFRAGMENT_ID] = ServiceFragment.newInstance(this);
         mFragments[BasicFragment.GOOGLEMAPFRAGMENT_ID] = new GoogleMapFragment();
+        mFragments[BasicFragment.REGROUPEMENTS_ID] = new RegroupementsFragment();
+        mFragments[BasicFragment.ABOUTFRAGMENT_ID] = new AboutFragment();
+        mFragments[BasicFragment.PARAMETERSFRAGMENT_ID] = new ParametersFragment();
 
         mMenuTitles = getResources().getStringArray(R.array.menu_titles_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
 
-        View mDrawerImage = getLayoutInflater().inflate(R.layout.activity_drawer_image,null);
+        View mDrawerImage = getLayoutInflater().inflate(R.layout.activity_drawer_image, null);
         mDrawerList.addHeaderView(mDrawerImage);
 
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
 
         NavDrawerItem[] mItems = new NavDrawerItem[mMenuTitles.length];
-        for(int i=0; i<mMenuTitles.length; i++){
-            mItems[i] = new NavDrawerItem(i,mMenuTitles[i]);
+        for (int i = 0; i < mMenuTitles.length; i++) {
+            mItems[i] = new NavDrawerItem(i, mMenuTitles[i]);
         }
 
-        mDrawerList.setAdapter(new DrawerAdapter(this,R.layout.activity_list_item_drawer,mItems));
+        mDrawerList.setAdapter(new DrawerAdapter(this, R.layout.activity_list_item_drawer, mItems));
 
         mDrawerList.setOnItemClickListener(this);
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                R.string.drawer_open, R.string.drawer_close) {
+            R.string.drawer_open, R.string.drawer_close) {
 
             private boolean shouldHide = true;
+
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
@@ -89,7 +96,7 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 super.onDrawerSlide(drawerView, slideOffset);
-                if(shouldHide){
+                if (shouldHide) {
                     mActionBar.setIcon(android.R.color.transparent);
                     invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
                     shouldHide = false;
@@ -152,24 +159,34 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
 
     private void selectItem(int position) {
 
-        if(position == 0)
+        if (position == 0)
             return;
 
-        Fragment fragment = mFragments[position-1];
+        Fragment fragment = mFragments[position - 1];
 
-        if(fragment == null){
-            switch(position){
-                case BasicFragment.HOMEFRAGMENT_ID+1:
+        if (fragment == null) {
+            switch (position) {
+                case BasicFragment.HOMEFRAGMENT_ID + 1:
                     mFragments[position] = new HomeFragment();
                     break;
-                case BasicFragment.CAFEFRAGMENT_ID+1:
+                case BasicFragment.CAFEFRAGMENT_ID + 1:
                     mFragments[position] = new CafeFragment();
                     break;
-                case BasicFragment.SERVICEFRAGMENT_ID+1:
+                case BasicFragment.SERVICEFRAGMENT_ID + 1:
                     mFragments[position] = ServiceFragment.newInstance(this);
                     break;
-                case BasicFragment.GOOGLEMAPFRAGMENT_ID+1:
+                case BasicFragment.GOOGLEMAPFRAGMENT_ID + 1:
                     mFragments[position] = new GoogleMapFragment();
+                    break;
+                case BasicFragment.REGROUPEMENTS_ID+ 1:
+                    mFragments[position] = new RegroupementsFragment();
+                    break;
+                case BasicFragment.ABOUTFRAGMENT_ID + 1:
+                    mFragments[position] = new AboutFragment();
+                    break;
+                case BasicFragment.PARAMETERSFRAGMENT_ID + 1:
+                    mFragments[position] = new ParametersFragment();
+                    break;
             }
             fragment = mFragments[position];
         }
@@ -181,7 +198,7 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
 
         // update selected item title, then close the drawer
         //setTitle(mMenuTitles[position]);
-        mDrawerList.setItemChecked(position,true);
+        mDrawerList.setItemChecked(position, true);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
@@ -206,16 +223,10 @@ public class NavigationDrawerActivity extends Activity implements AdapterView.On
 
     @Override
     public void onBackPressed() {
-        if(getFragmentManager().getBackStackEntryCount() == 0) {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
             super.onBackPressed();
-        }
-        else {
+        } else {
             getFragmentManager().popBackStack();
         }
     }
-
-    // Autres trucs à faire
-
-    // TODO Créer un fragment pour les Paramètres
-    // TODO Créer un fragment pour le "A propos"
 }

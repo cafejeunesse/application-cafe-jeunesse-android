@@ -9,7 +9,8 @@
         <item>Le Café Jeunesse</item>
         <item>Répertoire</item>
         <item>Carte</item>
-        <item>Contacts</item>
+        <item>Regroupements</item>
+        <item>À propos</item>
         <item>Paramètres</item>
     </string-array>
 
@@ -27,15 +28,15 @@
     <string name="custom_service">Catégories personnalisée</string>
 
     <!-- Fragment Cafe -->
-    <string name="cafefragment_title">Votre Café</string>
-    <string name="cafefragment_subtitle">Un lieu d\'échange et de solidarité</string>
-    <string name="cafefragment_text">Depuis 1987, la mission du Café-Jeunesse de Chicoutimi est d\'accueillir et de rejoindre les jeunes adultes âgés entre 18 et 30 ans; les accompagner dans leurs démarches de prise en charge individuelle et/ou collective.
+    <string name="fragment_cafe_title">Votre Café</string>
+    <string name="fragment_cafe_subtitle">Un lieu d\'échange et de solidarité</string>
+    <string name="fragment_cafe_text">Depuis 1987, la mission du Café-Jeunesse de Chicoutimi est d\'accueillir et de rejoindre les jeunes adultes âgés entre 18 et 30 ans; les accompagner dans leurs démarches de prise en charge individuelle et/ou collective.
         \n\nNous tentons aussi de faire naître, développer et soutenir des groupes selon des problématiques spécifiques pour répondre aux besoins vécus pas les jeunes adultes. </string>
-    <string name="cafefragment_button">Voir le code de vie</string>
-    <string name="cafefragment_liferules_title">Code de vie</string>
-    <string name="cafefragment_liferules_subtitle">Le code de vie représente les valeurs du Café-Jeunesse.</string>
+    <string name="fragment_cafe_button">Voir le code de vie</string>
+    <string name="fragment_cafe_liferules_title">Code de vie</string>
+    <string name="fragment_cafe_liferules_subtitle">Le code de vie représente les valeurs du Café-Jeunesse.</string>
 
-    <string name="cafefragment_liferules_text">
+    <string name="fragment_cafe_liferules_text">
         ◉ JE CONSENS que le respect est à la base de tout. Chacun a le droit au respect de sa personne, de ses choix, de ses opinions, de ses goûts.\n\n
         ◉ JE RESPECTERAI les heures d’ouverture de l’organisme à moins d’avis contraire d’un intervenant.\n\n
         ◉ J’UTILISERAI un langage approprié et respectueux envers les autres personnes qui fréquentent l’organisme, ainsi que les intervenants, les stagiaires et les bénévoles. Aucun langage à caractères violent ne sera toléré.\n\n
@@ -54,6 +55,28 @@
         3. Expulsion de l’organisme pour une durée significative selon l’évaluation de la situation et des gestes posés. À cette étape, tu devras rencontrer une intervenante pour pouvoir réintégrer l’organisme.
     </string>
 
+    <!-- Fragment About -->
+    <string name="fragment_about_title">À propos</string>
+    <string name="fragment_about_comite_title">
+        Comité de création de l’application mobile du Café-Jeunesse
+    </string>
+    <string name="fragment_about_comite_text">
+Kevin Lévesque Paquette\n
+Kim Lavoie\n
+Gabriel Le Breton\n
+Alexandre Bédard\n
+Camille-Laurence Larouche\n
+David Levayer\n
+Karole-Anne F., intervenante au Café-Jeunesse de Chicoutimi\n
+Marie-Pier Richard, stagiaire au baccalauréat en travail social
+    </string>
+    <string name="fragment_about_thanks_title">
+        Remerciement
+    </string>
+    <string name="fragment_about_thanks_text">
+        L’équipe du Café-Jeunesse tient à souligner la belle participation de toutes les personnes qui se sont mobilisées dans ce projet. C’est grâce au travail et à l’implication des jeunes adultes et des programmeurs bénévoles que cette application a pu être réalisée.
+    </string>
+
     <string name="error_while_reading_xml">Erreur lors de la lecture du fichier XML</string>
     <string name="error_on_xml_file_open">Erreur lors de l\'ouverture du fichier XML</string>
     <string name="line">Ligne</string>
@@ -70,5 +93,7 @@
     <string name="error_on_ics_parsing">Erreur lors de la lecture du calendrier</string>
     <string name="error_while_opening_ics">Une erreur s\'est produite lors de l\'ouverture du calendrier</string>
     <string name="error_on_creating_dir">Impossible de créer le dossier de travail de l\'application</string>
+    <string name="regroupments">Regroupements</string>
+
 
 </resources>
