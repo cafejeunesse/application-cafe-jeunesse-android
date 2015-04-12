@@ -1,5 +1,7 @@
 package com.cafejeunesse.android.structure;
 
+import com.cafejeunesse.android.navigationdrawer.R;
+
 import java.io.Serializable;
 
 /**
@@ -21,5 +23,33 @@ public class ServiceInfoElement implements Serializable {
 
     public Object getValue() {
         return value;
+    }
+
+    public int getImageResource() {
+        return getImageResource(tag);
+    }
+
+    private int getImageResource(String tag) {
+        switch (tag) {
+            case Service.TAG_PHONENUMBER:
+                return R.drawable.icon_phone;
+            case Service.TAG_ADDRESS:
+                return R.drawable.icon_map_marker;
+            case Service.TAG_SERVICES:
+                return R.drawable.icon_list;
+            case Service.TAG_PRICE:
+                return R.drawable.icon_usd;
+            case Service.TAG_WEBSITE:
+                return R.drawable.icon_globe;
+            case Service.TAG_FACEBOOK:
+                return R.drawable.icon_facebook;
+            case Service.TAG_CATEGORIES:
+//                return R.drawable.icon_folders;
+            case Service.TAG_KEYWORDS:
+//                return R.drawable.icon_tags;
+            default:
+                return R.drawable.oval_classic;
+
+        }
     }
 }

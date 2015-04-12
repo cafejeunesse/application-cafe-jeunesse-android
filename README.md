@@ -50,6 +50,8 @@ Si vous obtenez `permission denied: font-awesome-svg-png`,
 utiliser `~/local/lib/node_modules/font-awesome-svg-png/font-awesome-svg-png.js` 
 au lieu de `font-awesome-svg-png`
     
-Déplacer les icones et préfixer par `icon-`:
+Remplacer `-` par `_`, préfixer par `icon_`, déplacer les icones vers `app/src/main/res/drawable/`:
 
-    ls /tmp/icons/\#5C6BC0/png/256/ | xargs -I {} mv /tmp/icons/\#5C6BC0/png/256/{} app/src/main/res/drawable/icon-{} 
+    rename "s/-/_/g" /tmp/icons/\#5C6BC0/png/256/*
+    rename 's/^/icon_/' /tmp/icons/\#5C6BC0/png/256/*
+    mv /tmp/icons/\#5C6BC0/png/256/* app/src/main/res/drawable/

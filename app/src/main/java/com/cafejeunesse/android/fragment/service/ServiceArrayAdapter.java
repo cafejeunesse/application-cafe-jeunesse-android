@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cafejeunesse.android.navigationdrawer.R;
@@ -31,7 +32,7 @@ public class ServiceArrayAdapter extends ArrayAdapter<Service> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_service_list_item, parent, false);
         }
 
-        ((TextView) convertView.findViewById(R.id.service_name)).setText((String)s.getServiceName());
+        ((TextView) convertView.findViewById(R.id.service_name)).setText((String) s.getServiceName());
         ((TextView) convertView.findViewById(R.id.service_information)).setText(s.getServiceDescription());
 
         // Return the completed view to render on screen
