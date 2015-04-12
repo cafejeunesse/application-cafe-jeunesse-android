@@ -39,6 +39,4 @@ public class NewsArrayAdapter extends ArrayAdapter<News> {
         // Return the completed view to render on screen
         return convertView;
     }
-
-
 }

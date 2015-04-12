@@ -7,6 +7,8 @@
     android:showDividers="middle"
     android:background="@drawable/background_color_selector">
 
+    <!-- todo: add android:clickable="true" -->
+
     <TextView
         android:id="@+id/service_name"
         style="?android:textAppearanceLarge"
@@ -42,6 +44,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="18dp"
         android:layout_marginLeft="18dp"
-        android:src="@drawable/oval_accent_color"/>
+        android:src="@drawable/oval_accent_color"
+        android:contentDescription="@string/icon" />
 
 </RelativeLayout>

@@ -78,7 +78,7 @@ Marie-Pier Richard, stagiaire au baccalauréat en travail social
     </string>
 
     <string name="error_while_reading_xml">Erreur lors de la lecture du fichier XML</string>
-    <string name="error_on_xml_file_open">Erreur lors de l\'ouverture du fichier XML</string>
+    <string name="error_on_ics_file_open">Erreur lors de l\'ouverture du calendrier</string>
     <string name="line">Ligne</string>
     <string name="saguenay">Saguenay</string>
     <string name="cafe_jeunesse">Café Jeunesse</string>
@@ -94,6 +94,7 @@ Marie-Pier Richard, stagiaire au baccalauréat en travail social
     <string name="error_while_opening_ics">Une erreur s\'est produite lors de l\'ouverture du calendrier</string>
     <string name="error_on_creating_dir">Impossible de créer le dossier de travail de l\'application</string>
     <string name="regroupments">Regroupements</string>
+    <string name="icon">icon</string>
 
 
 </resources>

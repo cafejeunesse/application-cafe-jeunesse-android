@@ -204,7 +204,7 @@ public class HomeFragment extends BasicFragment implements Refreshable, AdapterV
             } catch (FileNotFoundException ignored) {
                 Toast.makeText(mContext, mContext.getString(R.string.error_while_opening_ics), Toast.LENGTH_LONG).show();
             } catch (IOException e) {
-                Toast.makeText(mContext, mContext.getString(R.string.error_on_xml_file_open), Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, mContext.getString(R.string.error_on_ics_file_open), Toast.LENGTH_LONG).show();
             } catch (ParserException e) {
                 Toast.makeText(mContext, mContext.getString(R.string.error_on_ics_parsing), Toast.LENGTH_LONG).show();
             } catch (Exception e) {
