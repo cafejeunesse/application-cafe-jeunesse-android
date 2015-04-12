@@ -1,7 +1,14 @@
 # application-cafe-jeunesse-android
 Dépôt pour application Android du Café Jeunesse
 
-## Code
+## Prérequis
+
+Ce projet a été créé avec [Android studio](http://developer.android.com/tools/studio/index.html).
+
+### Google Play Services
+
+Si vous désirez utiliser l'émulateur, il vous faut avoir les *Google Play Services* et *Google Apis* installés dans votre android sdk (section Extras dans le sdk-manager).
+Pour plus de détails, voir [android-emulator-this-app-wont-run-without-google-play-services](http://stackoverflow.com/questions/23265214/android-emulator-this-app-wont-run-without-google-play-services)
 
 ### Google Maps API
 

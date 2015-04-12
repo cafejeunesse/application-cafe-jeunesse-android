@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
+import android.widget.Toast;
 
 import com.cafejeunesse.android.structure.Service;
 
@@ -58,22 +59,25 @@ public class ServiceDataSource {
 
     public void importDataFromAsset(String filePath){
 
-        // Retire les services de la base de données
-        dbHelper.onUpgrade(database,mCurrentVersion,mCurrentVersion+1);
-        mCurrentVersion++;
+        //todo: télécharger la base de données distante
+        try {
+            // Retire les services de la base de données
+            dbHelper.onUpgrade(database,mCurrentVersion,mCurrentVersion+1);
+            mCurrentVersion++;
 
-        SQLiteDatabase newDatabase = SQLiteDatabase.openDatabase(
+            SQLiteDatabase newDatabase = SQLiteDatabase.openDatabase(
                 filePath,
                 null,
                 SQLiteDatabase.OPEN_READONLY);
 
-        if(newDatabase != null){
             List<Service> newServices = getAllServices(newDatabase);
 
             for(Service s: newServices)
                 createService(s);
 
             newDatabase.close();
+        } catch (Exception e) {
+            Toast.makeText(mContext, "Erreur bdd services: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
