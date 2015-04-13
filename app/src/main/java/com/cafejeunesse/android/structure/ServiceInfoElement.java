@@ -32,17 +32,17 @@ public class ServiceInfoElement implements Serializable {
     private int getImageResource(String tag) {
         switch (tag) {
             case Service.TAG_PHONENUMBER:
-                return R.drawable.icon_phone;
+                return R.drawable.icon_blue_phone;
             case Service.TAG_ADDRESS:
-                return R.drawable.icon_map_marker;
+                return R.drawable.icon_blue_map_marker;
             case Service.TAG_SERVICES:
-                return R.drawable.icon_list;
+                return R.drawable.icon_blue_list;
             case Service.TAG_PRICE:
-                return R.drawable.icon_usd;
+                return R.drawable.icon_blue_usd;
             case Service.TAG_WEBSITE:
-                return R.drawable.icon_globe;
+                return R.drawable.icon_blue_globe;
             case Service.TAG_FACEBOOK:
-                return R.drawable.icon_facebook;
+                return R.drawable.icon_blue_facebook;
             case Service.TAG_CATEGORIES:
 //                return R.drawable.icon_folders;
             case Service.TAG_KEYWORDS:

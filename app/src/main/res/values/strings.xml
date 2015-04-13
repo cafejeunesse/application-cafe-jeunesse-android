@@ -112,7 +112,7 @@ Marie-Pier Richard, stagiaire au baccalauréat en travail social
     <string name="saguenay">Saguenay</string>
     <string name="cafe_jeunesse">Café Jeunesse</string>
     <string name="fab_icon">Icône fab</string>
-    <string name="name_of_service">Nom du service</string>
+    <string name="service_name">Nom du service</string>
     <string name="description_exerp">Description sommaire</string>
     <string name="info_type">Type d\'info</string>
     <string name="multi_line_information">Valeur de l\'information sur plusieurs lignes</string>
@@ -124,6 +124,9 @@ Marie-Pier Richard, stagiaire au baccalauréat en travail social
     <string name="error_on_creating_dir">Impossible de créer le dossier de travail de l\'application</string>
     <string name="regroupments">Regroupements</string>
     <string name="icon">icon</string>
+    <string name="background_color_description">Couleur de fond</string>
+    <string name="source_code_on_github">Code source sur Github</string>
+    <string name="github_icon">Icône Github</string>
 
 
 </resources>

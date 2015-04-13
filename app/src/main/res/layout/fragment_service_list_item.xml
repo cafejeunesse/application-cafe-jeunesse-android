@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="?android:listPreferredItemHeightLarge"
+    android:layout_height="wrap_content"
     android:divider="?android:dividerVertical"
     android:orientation="horizontal"
     android:showDividers="middle"
     android:background="@drawable/background_color_selector">
-
-    <!-- todo: add android:clickable="true" -->
 
     <TextView
         android:id="@+id/service_name"
@@ -17,34 +15,32 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="9dp"
         android:layout_marginRight="9dp"
-        android:layout_toRightOf="@+id/service_icon"
         android:textColor="@color/news_title"
         android:textStyle="bold"
-        android:singleLine="true"
         android:ellipsize="end"
-        android:text="@string/name_of_service"/>
+        android:text="@string/service_name"/>
 
     <TextView
         android:id="@+id/service_information"
         style="?android:textAppearanceMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/service_icon"
         android:layout_below="@id/service_name"
         android:layout_marginLeft="9dp"
         android:layout_marginRight="9dp"
+        android:layout_marginBottom="15dp"
         android:textColor="@color/news_subtitle"
         android:singleLine="true"
         android:ellipsize="end"
         android:text="@string/description_exerp"/>
 
-    <ImageView
-        android:id="@+id/service_icon"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginLeft="18dp"
-        android:src="@drawable/oval_accent_color"
-        android:contentDescription="@string/icon" />
+    <!--<ImageView-->
+        <!--android:id="@+id/service_icon"-->
+        <!--android:layout_width="45dp"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:layout_marginTop="18dp"-->
+        <!--android:layout_marginLeft="18dp"-->
+        <!--android:src="@drawable/oval_accent_color"-->
+        <!--android:contentDescription="@string/icon" />-->
 
 </RelativeLayout>

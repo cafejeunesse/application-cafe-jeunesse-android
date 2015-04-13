@@ -5,24 +5,30 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
+    <!-- todo: add android:clickable="true" -->
+
     <ImageView
         android:id="@+id/service_image_details"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/rectangle_fragment_service"/>
+        android:src="@drawable/rectangle_fragment_service"
+        android:contentDescription="@string/background_color_description"
+        android:layout_alignBottom="@+id/service_details_title" />
 
     <TextView
         android:id="@+id/service_details_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/name_of_service"
+        android:text="@string/service_name"
         android:textColor="@color/fragment_title"
         android:textSize="@dimen/basic_fragment_title_size"
-        android:layout_below="@id/service_image_details"
-        android:layout_marginTop="-50dp"
-        android:layout_marginLeft="20dp"/>
+        android:singleLine="false"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp" />
 
     <TextView
         android:textAppearance="?android:textAppearanceMedium"
