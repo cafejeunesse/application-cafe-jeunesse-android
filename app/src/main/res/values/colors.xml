@@ -12,6 +12,9 @@
     <color name="fragment_cafe_accent_color">#EF5350</color>
     <color name="fragment_service_accent_color">#5C6BC0</color>
     <color name="fragment_googlemap_accent_color">#66BB6A</color>
+    <color name="fragment_regroupement_accent_color">#673AB7</color>
+    <color name="fragment_about_accent_color">#009688</color>
+    <color name="fragment_parameters_accent_color">#444</color>
 
     <color name="actionbar">#af424242</color>
 

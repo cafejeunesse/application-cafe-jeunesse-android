@@ -24,6 +24,21 @@
         app:googlemapFragment="true"/>
 
     <item
+        android:color="@color/fragment_regroupement_accent_color"
+        android:state_activated="true"
+        app:regroupementFragment="true"/>
+
+    <item
+        android:color="@color/fragment_about_accent_color"
+        android:state_activated="true"
+        app:aboutFragment="true"/>
+
+    <item
+        android:color="@color/fragment_parameters_accent_color"
+        android:state_activated="true"
+        app:parametersFragment="true"/>
+
+    <item
         android:color="@color/fragment_home_accent_color"
         android:state_pressed="true"
         app:homeFragment="true"/>
@@ -42,6 +57,21 @@
         android:color="@color/fragment_googlemap_accent_color"
         android:state_pressed="true"
         app:googlemapFragment="true"/>
+
+    <item
+        android:color="@color/fragment_regroupement_accent_color"
+        android:state_pressed="true"
+        app:regroupementFragment="true"/>
+
+    <item
+        android:color="@color/fragment_about_accent_color"
+        android:state_pressed="true"
+        app:aboutFragment="true"/>
+
+    <item
+        android:color="@color/fragment_parameters_accent_color"
+        android:state_pressed="true"
+        app:parametersFragment="true"/>
 
     <item android:color="@color/menu_text" android:state_activated="false"/>
 

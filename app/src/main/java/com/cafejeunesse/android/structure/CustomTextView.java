@@ -18,6 +18,9 @@ public class CustomTextView extends TextView {
     private static int[] SERVICE_FRAGMENT = {R.attr.serviceFragment};
     private static int[] CAFE_FRAGMENT = {R.attr.cafeFragment};
     private static int[] GOOGLEMAP_FRAGMENT = {R.attr.googlemapFragment};
+    private static int[] REGROUPEMENT_FRAGMENT = {R.attr.regroupementFragment};
+    private static int[] ABOUT_FRAGMENT = {R.attr.aboutFragment};
+    private static int[] PARAMETERS_FRAGMENT = {R.attr.parametersFragment};
 
     public CustomTextView(Context context) {
         super(context);
@@ -48,6 +51,15 @@ public class CustomTextView extends TextView {
                 break;
             case BasicFragment.GOOGLEMAPFRAGMENT_ID:
                 mergeDrawableStates(drawableState, GOOGLEMAP_FRAGMENT);
+                break;
+            case BasicFragment.ABOUTFRAGMENT_ID:
+                mergeDrawableStates(drawableState, ABOUT_FRAGMENT);
+                break;
+            case  BasicFragment.REGROUPEMENTS_ID:
+                mergeDrawableStates(drawableState, REGROUPEMENT_FRAGMENT);
+                break;
+            case BasicFragment.PARAMETERSFRAGMENT_ID:
+                mergeDrawableStates(drawableState, PARAMETERS_FRAGMENT);
                 break;
             default:
                 return super.onCreateDrawableState(extraSpace);
