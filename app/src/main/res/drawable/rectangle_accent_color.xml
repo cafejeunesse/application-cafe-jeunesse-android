@@ -3,24 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item app:homeFragment="true">
+    <item>
         <shape xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/rectangle_fragment">
-            <solid android:color="@color/fragment_home_accent_color" />
-        </shape>
-    </item>
-
-    <item app:cafeFragment="true">
-        <shape xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/rectangle_fragment">
-            <solid android:color="@color/fragment_cafe_accent_color" />
-        </shape>
-    </item>
-
-    <item app:serviceFragment="true">
-        <shape xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/rectangle_fragment">
-            <solid android:color="@color/fragment_service_accent_color" />
+            <solid android:color="@color/accent_color" />
         </shape>
     </item>
 

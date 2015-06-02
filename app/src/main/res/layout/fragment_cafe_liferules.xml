@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/fragment_cafe_liferules_content_title"
                 android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="@color/fragment_cafe_accent_color"
+                android:textColor="@color/accent_color"
                 style="@style/title_margin" />
 
             <TextView
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/fragment_cafe_liferules_consentement_title"
                 android:textAppearance="?android:textAppearanceLarge"
-                android:textColor="@color/fragment_cafe_accent_color"
+                android:textColor="@color/accent_color"
                 style="@style/title_margin" />
 
             <TextView

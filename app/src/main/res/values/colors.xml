@@ -8,14 +8,6 @@
     <color name="accent_color">#FFD54F</color>
     <color name="text_content">#424242</color>
 
-    <color name="fragment_home_accent_color">#FFCA28</color>
-    <color name="fragment_cafe_accent_color">#EF5350</color>
-    <color name="fragment_service_accent_color">#5C6BC0</color>
-    <color name="fragment_googlemap_accent_color">#66BB6A</color>
-    <color name="fragment_regroupement_accent_color">#673AB7</color>
-    <color name="fragment_about_accent_color">#009688</color>
-    <color name="fragment_parameters_accent_color">#444</color>
-
     <color name="actionbar">#af424242</color>
 
     <color name="menu_text">#757575</color>
@@ -34,7 +26,7 @@
 
     <color name="light_gray2">#cacbcc</color>
 
-    <color name="fab_color_1">@color/fragment_home_accent_color</color>
+    <color name="fab_color_1">@color/accent_color</color>
     <color name="fab_color_1_muted">#ffeb64</color>
     <color name="fab_color_2">@color/news_date_rectangle</color>
     <color name="fab_color_2_muted">#c0e8fe</color>

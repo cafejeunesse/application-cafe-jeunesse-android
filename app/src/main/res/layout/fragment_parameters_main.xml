@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:text="todo"
         android:textAppearance="?android:textAppearanceLarge"
-        android:textColor="@color/fragment_cafe_accent_color"
+        android:textColor="@color/accent_color"
         android:layout_below="@id/cafe_line"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"/>

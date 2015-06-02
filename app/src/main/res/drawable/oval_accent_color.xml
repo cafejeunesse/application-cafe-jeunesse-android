@@ -3,32 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item app:homeFragment="true">
+    <item>
         <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
-            <stroke android:width="3dp" android:color="@color/fragment_home_accent_color" />
+            <stroke android:width="3dp" android:color="@color/accent_color" />
         </shape>
     </item>
-
-    <item app:cafeFragment="true">
-        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
-            <stroke android:width="3dp" android:color="@color/fragment_cafe_accent_color" />
-        </shape>
-    </item>
-
-    <item app:serviceFragment="true">
-        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
-            <stroke android:width="3dp" android:color="@color/fragment_service_accent_color" />
-        </shape>
-    </item>
-
-    <item app:serviceFragment="false"
-        app:homeFragment="false"
-        app:cafeFragment="false">
-        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" >
-            <stroke android:width="3dp" android:color="@color/list_item_background_pressed" />
-        </shape>
-    </item>
-
 
 </selector>
 
