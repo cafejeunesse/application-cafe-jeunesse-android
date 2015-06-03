@@ -5,7 +5,7 @@
     <color name="main_color_soft">#757575</color>
     <color name="main_color_negative">#FFFFFF</color>
 
-    <color name="accent_color">#FFD54F</color>
+    <color name="accent_color">#35dd17</color>
     <color name="text_content">#424242</color>
 
     <color name="actionbar">#af424242</color>
@@ -17,7 +17,7 @@
     <color name="news_title">@color/main_color</color>
     <color name="news_subtitle">#000</color>
     <color name="news_date">@color/main_color_negative</color>
-    <color name="news_date_rectangle">#E0E0E0</color>
+    <color name="news_date_rectangle">#735f58</color>
 
     <color name="fragment_title">@color/main_color_negative</color>
     <color name="fragment_rectangle">@color/main_color_soft</color>
